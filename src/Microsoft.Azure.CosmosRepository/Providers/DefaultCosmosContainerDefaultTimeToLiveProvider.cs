@@ -8,7 +8,7 @@ namespace Microsoft.Azure.CosmosRepository.Providers;
 /// Creates an instance of the <see cref="DefaultCosmosContainerDefaultTimeToLiveProvider"/>.
 /// </summary>
 /// <param name="options">The repository options.</param>
-class DefaultCosmosContainerDefaultTimeToLiveProvider(IOptions<RepositoryOptions> options) : ICosmosContainerDefaultTimeToLiveProvider
+ public class DefaultCosmosContainerDefaultTimeToLiveProvider(IOptions<RepositoryOptions> options) : ICosmosContainerDefaultTimeToLiveProvider
 {
     private readonly IOptions<RepositoryOptions> _options = options;
 

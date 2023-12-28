@@ -1,11 +1,10 @@
 ﻿// Copyright (c) David Pine. All rights reserved.
 // Licensed under the MIT License.
 
-// ReSharper disable once CheckNamespace
-namespace Microsoft.Azure.CosmosRepository;
+namespace Microsoft.Azure.CosmosRepository.Repositories;
 
 /// <inheritdoc/>
-internal sealed partial class DefaultRepository<TItem>(
+public partial class DefaultRepository<TItem>(
     IOptionsMonitor<RepositoryOptions> optionsMonitor,
     ICosmosContainerProvider<TItem> containerProvider,
     ILogger<DefaultRepository<TItem>> logger,
@@ -35,7 +34,9 @@ internal sealed partial class DefaultRepository<TItem>(
         CancellationToken cancellationToken = default)
     {
         string? continuationToken = null;
-        List<TItem> results = [];
+        List<TItem> results = new()
+        {
+        };
         var readItemsCount = 0;
         double charge = 0;
         using var iterator = query.ToFeedIterator();

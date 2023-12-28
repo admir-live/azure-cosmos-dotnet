@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Specification.Evaluator;
 
-internal interface ISpecificationEvaluator
+public interface ISpecificationEvaluator
 {
     IQueryable<TItem> GetQuery<TItem, TResult>(IQueryable<TItem> query, ISpecification<TItem, TResult> specification, bool evaluateCriteriaOnly = false)
         where TItem : IItem

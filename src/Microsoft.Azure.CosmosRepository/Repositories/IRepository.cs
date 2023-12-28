@@ -1,7 +1,7 @@
 ﻿// Copyright (c) David Pine. All rights reserved.
 // Licensed under the MIT License.
 
-namespace Microsoft.Azure.CosmosRepository;
+namespace Microsoft.Azure.CosmosRepository.Repositories;
 
 /// <summary>
 /// This is the repository interface for any implementation of
@@ -9,12 +9,12 @@ namespace Microsoft.Azure.CosmosRepository;
 /// It exposes both <see cref="IReadOnlyRepository{TItem}"/> and
 /// <see cref="IWriteOnlyRepository{TItem}"/>, providing a fully functioning repository.
 /// </summary>
-/// <typeparam name="TItem">The <see cref="IItem"/> implementation class type.</typeparam>
+/// <typeparam name="TItem">The <see cref="IItem"/> implementation  public class type.</typeparam>
 /// <example>
 /// With DI, use .ctor injection to require any implementation of <see cref="IItem"/>:
 /// <code language="c#">
 /// <![CDATA[
-/// public class ConsumingService
+///  public class ConsumingService
 /// {
 ///     readonly IRepository<SomePoco> _pocoRepository;
 ///

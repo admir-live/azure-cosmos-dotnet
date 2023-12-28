@@ -11,7 +11,7 @@ namespace Microsoft.Azure.CosmosRepository.Exceptions;
 /// </remarks>
 /// <param name="type">The current type on the <see cref="IItem"/></param>
 /// <param name="expectedType">The expected type of the <see cref="IItem"/></param>
-public class MissMatchedTypeDiscriminatorException(
+ public class MissMatchedTypeDiscriminatorException(
     string type,
     string expectedType) : Exception(
     $"The IItem has the type discriminator of {type} and it expected {expectedType}")

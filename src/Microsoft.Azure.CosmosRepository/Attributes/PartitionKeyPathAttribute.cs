@@ -18,8 +18,8 @@ namespace Microsoft.Azure.CosmosRepository.Attributes;
 /// Constructor accepting the <paramref name="path"/> of the partition key for a given <see cref="IItem"/>.
 /// </remarks>
 /// <param name="path"></param>
-[AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
-public sealed class PartitionKeyPathAttribute(string path) : Attribute
+[AttributeUsage(AttributeTargets.All, AllowMultiple = false, Inherited = true)]
+public  class PartitionKeyPathAttribute(string path) : Attribute
 {
     /// <summary>
     /// Gets the path of the parition key.

@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.ChangeFeed.Providers;
 
-class DefaultLeaseContainerProvider : ILeaseContainerProvider
+ public class DefaultLeaseContainerProvider : ILeaseContainerProvider
 {
     private readonly ICosmosClientProvider _cosmosClientProvider;
     private readonly Lazy<Task<Container>> _lazyContainer;

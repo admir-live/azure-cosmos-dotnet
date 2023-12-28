@@ -6,7 +6,7 @@ namespace Microsoft.Azure.CosmosRepository.Providers;
 /// <summary>
 /// Decides whether or not a given container should sync it's properties.
 /// </summary>
-interface ICosmosContainerSyncContainerPropertiesProvider
+public interface ICosmosContainerSyncContainerPropertiesProvider
 {
     /// <summary>
     /// Gets whether the container should sync container properties.

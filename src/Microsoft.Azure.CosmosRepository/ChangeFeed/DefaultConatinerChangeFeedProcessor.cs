@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.ChangeFeed;
 
-internal class DefaultContainerChangeFeedProcessor : IContainerChangeFeedProcessor
+  public class DefaultContainerChangeFeedProcessor : IContainerChangeFeedProcessor
 {
     private readonly ICosmosContainerService _containerService;
     private readonly ILeaseContainerProvider _leaseContainerProvider;
@@ -59,7 +59,7 @@ internal class DefaultContainerChangeFeedProcessor : IContainerChangeFeedProcess
             itemContainer.Id);
     }
 
-    internal async Task OnChangesAsync(
+     async Task OnChangesAsync(
         IReadOnlyCollection<JObject> changes,
         string containerName,
         CancellationToken cancellationToken)

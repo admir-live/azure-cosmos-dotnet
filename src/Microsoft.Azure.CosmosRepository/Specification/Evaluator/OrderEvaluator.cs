@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Specification.Evaluator;
 
-internal class OrderEvaluator : IEvaluator
+  public class OrderEvaluator : IEvaluator
 {
     public bool IsFilterEvaluator => false;
 

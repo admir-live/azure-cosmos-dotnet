@@ -7,7 +7,7 @@ namespace Microsoft.Azure.CosmosRepository.Specification;
 /// A specification used for the Offset and Limit pattern
 /// </summary>
 /// <typeparam name="TItem"></typeparam>
-public class OffsetByPageNumberSpecification<TItem> : BaseSpecification<TItem, IPageQueryResult<TItem>>
+ public class OffsetByPageNumberSpecification<TItem> : BaseSpecification<TItem, IPageQueryResult<TItem>>
     where TItem : IItem
 {
     /// <summary>

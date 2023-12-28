@@ -6,7 +6,7 @@
 namespace Microsoft.Azure.CosmosRepository.Paging;
 
 /// <inheritdoc/>
-public class Page<T> : IPage<T> where T : IItem
+ public class Page<T> : IPage<T> where T : IItem
 {
     /// <summary>
     /// Creates a page.
@@ -16,7 +16,7 @@ public class Page<T> : IPage<T> where T : IItem
     /// <param name="items"></param>
     /// <param name="charge"></param>
     /// <param name="continuation"></param>
-    internal Page(int? total, int size, IReadOnlyList<T> items, double charge, string? continuation = null)
+    public Page(int? total, int size, IReadOnlyList<T> items, double charge, string? continuation = null)
     {
         Total = total;
         Size = size;

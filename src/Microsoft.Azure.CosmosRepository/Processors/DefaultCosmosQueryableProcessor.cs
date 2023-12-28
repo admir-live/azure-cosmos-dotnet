@@ -3,13 +3,15 @@
 
 namespace Microsoft.Azure.CosmosRepository.Processors;
 
-class DefaultCosmosQueryableProcessor : ICosmosQueryableProcessor
+ public class DefaultCosmosQueryableProcessor : ICosmosQueryableProcessor
 {
     public async ValueTask<(IEnumerable<TItem> items, double charge)> IterateAsync<TItem>(IQueryable<TItem> queryable, CancellationToken cancellationToken = default) where TItem : IItem
     {
         using var iterator = queryable.ToFeedIterator();
 
-        List<TItem> results = [];
+        List<TItem> results = new()
+        {
+        };
         double charge = 0;
 
         while (iterator.HasMoreResults)
@@ -37,7 +39,9 @@ class DefaultCosmosQueryableProcessor : ICosmosQueryableProcessor
     {
         using FeedIterator<TItem> queryIterator = container.GetItemQueryIterator<TItem>(queryDefinition);
 
-        List<TItem> results = [];
+        List<TItem> results = new()
+        {
+        };
 
         while (queryIterator.HasMoreResults)
         {

@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Options;
 
-internal class ItemConfiguration(
+  public class ItemConfiguration(
     Type type,
     string containerName,
     string partitionKeyPath,

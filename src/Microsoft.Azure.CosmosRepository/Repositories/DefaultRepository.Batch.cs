@@ -1,10 +1,10 @@
 // Copyright (c) David Pine. All rights reserved.
 // Licensed under the MIT License.
 
-// ReSharper disable once CheckNamespace
-namespace Microsoft.Azure.CosmosRepository;
 
-internal partial class DefaultRepository<TItem>
+namespace Microsoft.Azure.CosmosRepository.Repositories;
+
+public partial class DefaultRepository<TItem>
 {
     /// <inheritdoc />
     public async ValueTask UpdateAsBatchAsync(

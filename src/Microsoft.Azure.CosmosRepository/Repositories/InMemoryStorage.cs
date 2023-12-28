@@ -1,13 +1,13 @@
 ﻿// Copyright (c) David Pine. All rights reserved.
 // Licensed under the MIT License.
 
-namespace Microsoft.Azure.CosmosRepository;
+namespace Microsoft.Azure.CosmosRepository.Repositories;
 
-internal static class InMemoryStorage
+ static  public class InMemoryStorage
 {
     private static ConcurrentDictionary<Type, ConcurrentDictionary<string, string>?> TypeToConcurrentDictionary { get; } = new();
 
-    internal static IEnumerable<string> GetValues<TItem>() where TItem : IItem
+     static IEnumerable<string> GetValues<TItem>() where TItem : IItem
     {
         if (TypeToConcurrentDictionary.TryGetValue(typeof(TItem), out ConcurrentDictionary<string, string>? value))
         {
@@ -18,7 +18,7 @@ internal static class InMemoryStorage
         return TypeToConcurrentDictionary[typeof(TItem)]?.Values ?? new List<string>();
     }
 
-    internal static ConcurrentDictionary<string, string> GetDictionary<TItem>() where TItem : IItem
+     static ConcurrentDictionary<string, string> GetDictionary<TItem>() where TItem : IItem
     {
         if (TypeToConcurrentDictionary.TryGetValue(typeof(TItem), out ConcurrentDictionary<string, string>? value))
         {

@@ -6,7 +6,7 @@ namespace Microsoft.Azure.CosmosRepository.Providers;
 /// <summary>
 /// Exposes the ability to get an <see cref="IItem"/>s containers throughput properties.
 /// </summary>
-interface ICosmosThroughputProvider
+public interface ICosmosThroughputProvider
 {
     /// <summary>
     /// Gets the throughput properties for the given <see cref="IItem"/>s container.

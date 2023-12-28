@@ -12,8 +12,8 @@ namespace Microsoft.Azure.CosmosRepository.Attributes;
 /// Constructor accepting the <paramref name="name"/> of the container for a given <see cref="IItem"/>.
 /// </remarks>
 /// <param name="name"></param>
-[AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
-public sealed class ContainerAttribute(string name) : Attribute
+[AttributeUsage(AttributeTargets.All, AllowMultiple = false, Inherited = true)]
+public  class ContainerAttribute(string name) : Attribute
 {
     /// <summary>
     /// Gets the path of the parition key.

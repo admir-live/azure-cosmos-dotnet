@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Logging;
 
-internal static class EventIds
+ static  public class EventIds
 {
     //15_000 - 15_100 Debug Events
     public static readonly EventId CosmosItemRead = new(

@@ -15,7 +15,7 @@ namespace Microsoft.Azure.CosmosRepository.Attributes;
 /// <param name="propertyPath">The property path to match for the constraint</param>
 /// <remarks>If the propertyPath is null the name of the property this is defined will be used.</remarks>
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = true)]
-public sealed class UniqueKeyAttribute(string? keyName = null, string? propertyPath = null) : Attribute
+public  class UniqueKeyAttribute(string? keyName = null, string? propertyPath = null) : Attribute
 {
     /// <summary>
     /// Gets the key name that represents the unique key.

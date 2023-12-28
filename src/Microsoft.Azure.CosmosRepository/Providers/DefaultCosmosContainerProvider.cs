@@ -4,7 +4,7 @@
 namespace Microsoft.Azure.CosmosRepository.Providers;
 
 /// <inheritdoc/>
-class DefaultCosmosContainerProvider<TItem>(ICosmosContainerService containerService)
+ public class DefaultCosmosContainerProvider<TItem>(ICosmosContainerService containerService)
     : ICosmosContainerProvider<TItem> where TItem : IItem
 {
     readonly Lazy<Task<Container>> _lazyContainer = new(async () => await containerService.GetContainerAsync<TItem>());

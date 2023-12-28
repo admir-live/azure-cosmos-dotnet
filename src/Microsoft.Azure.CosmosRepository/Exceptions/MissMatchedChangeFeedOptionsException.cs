@@ -11,7 +11,7 @@ namespace Microsoft.Azure.CosmosRepository.Exceptions;
 /// </remarks>
 /// <param name="message">The message detailing the miss match.</param>
 /// <param name="itemTypes">The types of <see cref="IItem"/>'s that are miss matched.</param>
-public class MissMatchedChangeFeedOptionsException(string message, IReadOnlyList<Type> itemTypes) : Exception(message)
+ public class MissMatchedChangeFeedOptionsException(string message, IReadOnlyList<Type> itemTypes) : Exception(message)
 {
     /// <summary>
     /// The types of <see cref="IItem"/>'s which are sharing a container.

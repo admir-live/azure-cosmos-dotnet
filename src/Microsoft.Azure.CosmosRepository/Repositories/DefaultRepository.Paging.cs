@@ -2,10 +2,10 @@
 // Licensed under the MIT License.
 
 
-// ReSharper disable once CheckNamespace
-namespace Microsoft.Azure.CosmosRepository;
 
-internal sealed partial class DefaultRepository<TItem>
+namespace Microsoft.Azure.CosmosRepository.Repositories;
+
+public partial class DefaultRepository<TItem>
 {
     /// <inheritdoc/>
     public async ValueTask<IPage<TItem>> PageAsync(
@@ -94,6 +94,6 @@ internal sealed partial class DefaultRepository<TItem>
             pageSize,
             items.AsReadOnly(),
             charge + countResponse?.RequestCharge ?? 0,
-            resultingContinuationToken /* This was missing, is this correct? */);
+            resultingContinuationToken);
     }
 }

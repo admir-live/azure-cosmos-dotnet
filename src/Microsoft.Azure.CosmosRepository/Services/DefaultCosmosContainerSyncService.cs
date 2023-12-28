@@ -4,7 +4,7 @@
 namespace Microsoft.Azure.CosmosRepository.Services;
 
 /// <inheritdoc/>
-class DefaultCosmosContainerSyncService(ICosmosContainerService containerService) : ICosmosContainerSyncService
+ public class DefaultCosmosContainerSyncService(ICosmosContainerService containerService) : ICosmosContainerSyncService
 {
     public Task SyncContainerPropertiesAsync<TItem>() where TItem : IItem =>
         containerService.GetContainerAsync<TItem>(true);

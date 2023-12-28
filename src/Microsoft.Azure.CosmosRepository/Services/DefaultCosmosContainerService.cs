@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Services;
 
-class DefaultCosmosContainerService : ICosmosContainerService
+ public class DefaultCosmosContainerService : ICosmosContainerService
 {
     readonly ICosmosItemConfigurationProvider _cosmosItemConfigurationProvider;
     readonly ICosmosClientProvider _cosmosClientProvider;

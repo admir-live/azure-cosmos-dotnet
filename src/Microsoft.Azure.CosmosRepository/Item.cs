@@ -4,13 +4,13 @@
 namespace Microsoft.Azure.CosmosRepository;
 
 /// <summary>
-/// A base helper class that implements IItem
+/// A base helper  public class that implements IItem
 /// </summary>
 /// <example>
-/// Here is an example subclass item, which adds several properties:
+/// Here is an example sub public class item, which adds several properties:
 /// <code language="c#">
 /// <![CDATA[
-/// public class SubItem : Item
+///  public class SubItem : Item
 /// {
 ///     public DateTimeOffset Date { get; set; }
 ///     public string Name { get; set; }
@@ -18,7 +18,7 @@ namespace Microsoft.Azure.CosmosRepository;
 ///     public IEnumerable<string> Tags { get; set; }
 /// }
 ///
-/// public class Child
+///  public class Child
 /// {
 ///     public string Name { get; set; }
 ///     public DateTime BirthDate { get; set; }
@@ -60,6 +60,6 @@ public abstract class Item : IItem
     /// to the <see cref="JsonPropertyAttribute.PropertyName"/> value, i.e.; "/partition" and "partition"
     /// respectively. If these two values do not correspond an error will occur.
     /// </summary>
-    /// <returns>The <see cref="Item.Id"/> unless overridden by the subclass.</returns>
+    /// <returns>The <see cref="Item.Id"/> unless overridden by the sub public class.</returns>
     protected virtual string GetPartitionKeyValue() => Id;
 }

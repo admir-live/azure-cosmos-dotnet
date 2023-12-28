@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Specification.Evaluator;
 
-internal class SpecificationEvaluator : ISpecificationEvaluator
+  public class SpecificationEvaluator : ISpecificationEvaluator
 {
     private static readonly IEnumerable<IEvaluator> Evaluators = new IEvaluator[]
     {

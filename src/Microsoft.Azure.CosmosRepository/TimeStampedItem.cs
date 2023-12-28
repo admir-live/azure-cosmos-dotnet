@@ -4,13 +4,13 @@
 namespace Microsoft.Azure.CosmosRepository;
 
 /// <summary>
-/// A base helper class that implements IItemWithTimeStamps
+/// A base helper  public class that implements IItemWithTimeStamps
 /// </summary>
 /// <example>
-/// Here is an example subclass item, which adds several properties:
+/// Here is an example sub public class item, which adds several properties:
 /// <code language="c#">
 /// <![CDATA[
-/// public class SubItem : ItemWithTimeToLive
+///  public class SubItem : ItemWithTimeToLive
 /// {
 ///     public DateTimeOffset Date { get; set; }
 ///     public string Name { get; set; }
@@ -18,7 +18,7 @@ namespace Microsoft.Azure.CosmosRepository;
 ///     public IEnumerable<string> Tags { get; set; }
 /// }
 ///
-/// public class Child
+///  public class Child
 /// {
 ///     public string Name { get; set; }
 ///     public DateTime BirthDate { get; set; }
@@ -26,7 +26,7 @@ namespace Microsoft.Azure.CosmosRepository;
 /// ]]>
 /// </code>
 /// </example>
-public class TimeStampedItem : Item, IItemWithTimeStamps
+ public class TimeStampedItem : Item, IItemWithTimeStamps
 {
     /// <inheritdoc />
     [JsonProperty]

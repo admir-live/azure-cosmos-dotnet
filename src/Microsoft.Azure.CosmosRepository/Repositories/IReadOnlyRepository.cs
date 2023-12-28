@@ -1,18 +1,18 @@
 ﻿// Copyright (c) David Pine. All rights reserved.
 // Licensed under the MIT License.
 
-namespace Microsoft.Azure.CosmosRepository;
+namespace Microsoft.Azure.CosmosRepository.Repositories;
 
 /// <summary>
 /// This is the read-only repository interface for any implementation of
 /// <typeparamref name="TItem"/>, exposing asynchronous read functionality.
 /// </summary>
-/// <typeparam name="TItem">The <see cref="IItem"/> implementation class type.</typeparam>
+/// <typeparam name="TItem">The <see cref="IItem"/> implementation  public class type.</typeparam>
 /// <example>
 /// With DI, use .ctor injection to require any implementation of <see cref="IItem"/>:
 /// <code language="c#">
 /// <![CDATA[
-/// public class ConsumingService
+///  public class ConsumingService
 /// {
 ///     readonly IReadOnlyRepository<SomePoco> _pocoRepository;
 ///
@@ -40,7 +40,7 @@ public interface IReadOnlyRepository<TItem> where TItem : IItem
         CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Gets the <see cref="IItem"/> implementation class instance as a <typeparamref name="TItem"/> that corresponds to the given <paramref name="id"/>.
+    /// Gets the <see cref="IItem"/> implementation  public class instance as a <typeparamref name="TItem"/> that corresponds to the given <paramref name="id"/>.
     /// </summary>
     /// <remarks>
     /// If the typeof(<typeparamref name="TItem"/>).Name differs from the item.Type you're attempting to retrieve, null is returned.
@@ -48,14 +48,14 @@ public interface IReadOnlyRepository<TItem> where TItem : IItem
     /// <param name="id">The string identifier.</param>
     /// <param name="partitionKeyValue">The partition key value if different than the <see cref="IItem.Id"/>.</param>
     /// <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
-    /// <returns>A <see cref="ValueTask{TItem}"/> representing the <see cref="IItem"/> implementation class instance as a <typeparamref name="TItem"/>.</returns>
+    /// <returns>A <see cref="ValueTask{TItem}"/> representing the <see cref="IItem"/> implementation  public class instance as a <typeparamref name="TItem"/>.</returns>
     ValueTask<TItem> GetAsync(
         string id,
         string? partitionKeyValue = null,
         CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Gets the <see cref="IItem"/> implementation class instance as a <typeparamref name="TItem"/> that corresponds to the given <paramref name="id"/>.
+    /// Gets the <see cref="IItem"/> implementation  public class instance as a <typeparamref name="TItem"/> that corresponds to the given <paramref name="id"/>.
     /// </summary>
     /// <remarks>
     /// If the typeof(<typeparamref name="TItem"/>).Name differs from the item.Type you're attempting to retrieve, null is returned.
@@ -63,7 +63,7 @@ public interface IReadOnlyRepository<TItem> where TItem : IItem
     /// <param name="id">The string identifier.</param>
     /// <param name="partitionKey">The <see cref="PartitionKey"/> value if different than the <see cref="IItem.Id"/>.</param>
     /// <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
-    /// <returns>A <see cref="ValueTask{TItem}"/> representing the <see cref="IItem"/> implementation class instance as a <typeparamref name="TItem"/>.</returns>
+    /// <returns>A <see cref="ValueTask{TItem}"/> representing the <see cref="IItem"/> implementation  public class instance as a <typeparamref name="TItem"/>.</returns>
     ValueTask<TItem> GetAsync(
         string id,
         PartitionKey partitionKey,
@@ -71,7 +71,7 @@ public interface IReadOnlyRepository<TItem> where TItem : IItem
 
     /// <summary>
     /// Gets an <see cref="IEnumerable{TItem}"/> collection of <see cref="IItem"/>
-    /// implementation classes that match the given <paramref name="predicate"/>.
+    /// implementation  public classes that match the given <paramref name="predicate"/>.
     /// </summary>
     /// <remarks>
     /// If the typeof(<typeparamref name="TItem"/>).Name differs from the item.Type you're attempting to retrieve, the item is not returned.
@@ -187,7 +187,7 @@ public interface IReadOnlyRepository<TItem> where TItem : IItem
     /// <summary>
     /// Get items based on a specification.
     /// The specification is used to define which filters are used, the order of the search results and how they are paged.
-    /// Depending on how results are paged derive specification implementations from different classes:
+    /// Depending on how results are paged derive specification implementations from different  public classes:
     /// For non paged results derive <see cref="DefaultSpecification{TItem}"/>
     /// For continuation token derive <see cref="ContinuationTokenSpecification{T}"/>
     /// For page number results derive <see cref="OffsetByPageNumberSpecification{T}"/>

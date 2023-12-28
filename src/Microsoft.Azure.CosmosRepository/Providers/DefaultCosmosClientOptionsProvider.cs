@@ -1,10 +1,12 @@
 ﻿// Copyright (c) David Pine. All rights reserved.
 // Licensed under the MIT License.
 
+using Microsoft.Azure.CosmosRepository.Internals;
+
 namespace Microsoft.Azure.CosmosRepository.Providers;
 
 /// <inheritdoc />
-class DefaultCosmosClientOptionsProvider : ICosmosClientOptionsProvider
+ public class DefaultCosmosClientOptionsProvider : ICosmosClientOptionsProvider
 {
     readonly Lazy<CosmosClientOptions> _lazyClientOptions;
 

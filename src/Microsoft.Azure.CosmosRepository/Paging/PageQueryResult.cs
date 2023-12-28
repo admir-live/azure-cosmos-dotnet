@@ -5,7 +5,6 @@
 
 namespace Microsoft.Azure.CosmosRepository.Paging;
 
-/// <inheritdoc/>
 public class PageQueryResult<T> : Page<T>, IPageQueryResult<T> where T : IItem
 {
     /// <summary>
@@ -16,7 +15,7 @@ public class PageQueryResult<T> : Page<T>, IPageQueryResult<T> where T : IItem
     /// <param name="items">The items.</param>
     /// <param name="charge">The charge.</param>
     /// <param name="continuation">The continuation.</param>
-    internal PageQueryResult(
+     public PageQueryResult(
         int? total,
         int size,
         IReadOnlyList<T> items,
@@ -34,7 +33,7 @@ public class PageQueryResult<T> : Page<T>, IPageQueryResult<T> where T : IItem
     /// <param name="items">The items.</param>
     /// <param name="charge">The charge.</param>
     /// <param name="continuation">The continuation.</param>
-    internal PageQueryResult(
+    public PageQueryResult(
         int? total,
         int? pageNumber,
         int size,

@@ -7,7 +7,7 @@ namespace Microsoft.Azure.CosmosRepository.Specification;
 /// A specification used for getting all results in a <see cref="QueryResult{T}"/>
 /// </summary>
 /// <typeparam name="TItem">The type of <see cref="IItem"/> being queried.</typeparam>
-public class DefaultSpecification<TItem> : BaseSpecification<TItem, IQueryResult<TItem>>
+ public class DefaultSpecification<TItem> : BaseSpecification<TItem, IQueryResult<TItem>>
     where TItem : IItem
 {
     /// <inheritdoc/>

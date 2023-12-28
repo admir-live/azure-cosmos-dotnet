@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Specification.Evaluator;
 
-internal class PagingEvaluator : IEvaluator
+  public class PagingEvaluator : IEvaluator
 {
     public bool IsFilterEvaluator => false;
 

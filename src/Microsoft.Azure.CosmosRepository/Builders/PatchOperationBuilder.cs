@@ -3,12 +3,12 @@
 
 namespace Microsoft.Azure.CosmosRepository.Builders;
 
-internal class PatchOperationBuilder<TItem> : IPatchOperationBuilder<TItem> where TItem : IItem
+  public class PatchOperationBuilder<TItem> : IPatchOperationBuilder<TItem> where TItem : IItem
 {
     private readonly List<PatchOperation> _patchOperations = new();
     private readonly NamingStrategy _namingStrategy;
 
-    internal readonly List<InternalPatchOperation> _rawPatchOperations = new();
+    public readonly List<PatchOperation> _rawPatchOperations = new();
 
     public IReadOnlyList<PatchOperation> PatchOperations => _patchOperations;
 
@@ -24,7 +24,7 @@ internal class PatchOperationBuilder<TItem> : IPatchOperationBuilder<TItem> wher
     {
         PropertyInfo property = expression.GetPropertyInfo();
         var propertyToReplace = GetPropertyToReplace(property);
-        _rawPatchOperations.Add(new InternalPatchOperation(property, value, PatchOperationType.Replace));
+        _rawPatchOperations.Add(PatchOperation.Replace($"/{propertyToReplace}", value));
         _patchOperations.Add(PatchOperation.Replace($"/{propertyToReplace}", value));
         return this;
     }

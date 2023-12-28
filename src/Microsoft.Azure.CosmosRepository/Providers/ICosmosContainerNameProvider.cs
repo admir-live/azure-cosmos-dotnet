@@ -7,7 +7,7 @@ namespace Microsoft.Azure.CosmosRepository.Providers;
 /// The cosmos container name provider maps container names to
 /// <see cref="IItem"/> implementations.
 /// </summary>
-interface ICosmosContainerNameProvider
+public interface ICosmosContainerNameProvider
 {
     /// <summary>
     /// Gets the container name for the corresponding <typeparamref name="TItem"/>.

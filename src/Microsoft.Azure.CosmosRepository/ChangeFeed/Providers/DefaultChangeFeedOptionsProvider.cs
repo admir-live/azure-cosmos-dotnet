@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.ChangeFeed.Providers;
 
-class DefaultChangeFeedOptionsProvider(IOptionsMonitor<RepositoryOptions> optionsMonitor) : IChangeFeedOptionsProvider
+ public class DefaultChangeFeedOptionsProvider(IOptionsMonitor<RepositoryOptions> optionsMonitor) : IChangeFeedOptionsProvider
 {
     private readonly RepositoryOptions _repositoryOptions = optionsMonitor.CurrentValue;
 

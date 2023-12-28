@@ -4,7 +4,7 @@
 namespace Microsoft.Azure.CosmosRepository.Builders;
 
 /// <inheritdoc/>
-internal class DefaultItemContainerBuilder : IItemContainerBuilder
+  public class DefaultItemContainerBuilder : IItemContainerBuilder
 {
     private readonly List<ContainerOptionsBuilder> _options = new();
 

@@ -4,10 +4,10 @@
 namespace Microsoft.Azure.CosmosRepository.Options;
 
 /// <summary>
-/// A repository options class, representing
+/// A repository options  public class, representing
 /// various Azure Cosmos DB configuration settings.
 /// </summary>
-public class RepositoryOptions
+ public class RepositoryOptions
 {
     /// <summary>
     /// The configuration key used for the connection string.
@@ -113,17 +113,17 @@ public class RepositoryOptions
     /// <summary>
     /// Container options provided by the <see cref="Builders.IItemContainerBuilder"/>
     /// </summary>
-    internal IReadOnlyList<ContainerOptionsBuilder> ContainerOptions => ContainerBuilder.Options;
+     IReadOnlyList<ContainerOptionsBuilder> ContainerOptions => ContainerBuilder.Options;
 
     /// <summary>
     /// Get the <see cref="ContainerOptionsBuilder"/> for a given <see cref="IItem"/>.
     /// </summary>
     /// <typeparam name="TItem"></typeparam>
     /// <returns>null or <see cref="ContainerOptionsBuilder"/>.</returns>
-    internal ContainerOptionsBuilder? GetContainerOptions<TItem>() where TItem : IItem =>
+     public ContainerOptionsBuilder? GetContainerOptions<TItem>() where TItem : IItem =>
         GetContainerOptions(typeof(TItem));
 
-    internal ContainerOptionsBuilder? GetContainerOptions(Type itemType) =>
+    public ContainerOptionsBuilder? GetContainerOptions(Type itemType) =>
         ContainerOptions.FirstOrDefault(co => co.Type == itemType);
 
     /// <summary>
@@ -131,13 +131,13 @@ public class RepositoryOptions
     /// </summary>
     /// <typeparam name="TItem">The type of <see cref="IItem"/> to find common types for.</typeparam>
     /// <returns>A collection of <see cref="ContainerOptionsBuilder"/>s that share the same container.</returns>
-    internal IEnumerable<ContainerOptionsBuilder> GetContainerSharedContainerOptions<TItem>() where TItem : IItem
+    public IEnumerable<ContainerOptionsBuilder> GetContainerSharedContainerOptions<TItem>() where TItem : IItem
     {
         ContainerOptionsBuilder? containerOptionsBuilder = GetContainerOptions<TItem>();
         return containerOptionsBuilder is not null ? ContainerOptions.Where(co => co.Name == containerOptionsBuilder.Name) : new List<ContainerOptionsBuilder>();
     }
 
-    internal IEnumerable<ContainerOptionsBuilder> GetContainerSharedContainerOptions(Type itemType)
+    public IEnumerable<ContainerOptionsBuilder> GetContainerSharedContainerOptions(Type itemType)
     {
         ContainerOptionsBuilder? containerOptionsBuilder = GetContainerOptions(itemType);
         return containerOptionsBuilder is not null ? ContainerOptions.Where(co => co.Name == containerOptionsBuilder.Name) : new List<ContainerOptionsBuilder>();

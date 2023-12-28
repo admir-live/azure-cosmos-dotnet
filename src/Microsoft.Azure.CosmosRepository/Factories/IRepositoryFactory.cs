@@ -1,7 +1,9 @@
 ﻿// Copyright (c) David Pine. All rights reserved.
 // Licensed under the MIT License.
 
-namespace Microsoft.Azure.CosmosRepository;
+using Microsoft.Azure.CosmosRepository.Repositories;
+
+namespace Microsoft.Azure.CosmosRepository.Factories;
 
 /// <summary>
 /// A factory abstraction for a component that can

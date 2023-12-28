@@ -4,7 +4,7 @@
 namespace Microsoft.Azure.CosmosRepository.Providers;
 
 /// <inheritdoc cref="Microsoft.Azure.CosmosRepository.Providers.ICosmosContainerNameProvider" />
-class DefaultCosmosContainerNameProvider(IOptions<RepositoryOptions> options) : ICosmosContainerNameProvider
+ public class DefaultCosmosContainerNameProvider(IOptions<RepositoryOptions> options) : ICosmosContainerNameProvider
 {
     private readonly IOptions<RepositoryOptions> _options = options ?? throw new ArgumentNullException(nameof(options));
 

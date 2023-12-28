@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Specification.Builder;
 
-internal class SpecificationBuilder<TItem, TResult>(BaseSpecification<TItem, TResult> specification) : ISpecificationBuilder<TItem, TResult>
+  public class SpecificationBuilder<TItem, TResult>(BaseSpecification<TItem, TResult> specification) : ISpecificationBuilder<TItem, TResult>
     where TItem : IItem
     where TResult : IQueryResult<TItem>
 {

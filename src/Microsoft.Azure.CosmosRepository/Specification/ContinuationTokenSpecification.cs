@@ -4,7 +4,7 @@
 namespace Microsoft.Azure.CosmosRepository.Specification;
 
 /// <inheritdoc/>
-public class ContinuationTokenSpecification<TItem> : BaseSpecification<TItem, IPage<TItem>>
+ public class ContinuationTokenSpecification<TItem> : BaseSpecification<TItem, IPage<TItem>>
     where TItem : IItem
 {
     /// <summary>

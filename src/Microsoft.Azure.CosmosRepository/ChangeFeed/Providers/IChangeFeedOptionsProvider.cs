@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.ChangeFeed.Providers;
 
-interface IChangeFeedOptionsProvider
+public interface IChangeFeedOptionsProvider
 {
     ChangeFeedOptions GetOptionsForItems(IReadOnlyList<Type> items);
 }

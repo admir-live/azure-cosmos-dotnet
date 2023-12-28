@@ -6,7 +6,7 @@ namespace Microsoft.Azure.CosmosRepository.Providers;
 /// <summary>
 /// The cosmos container default time to live provider to an <see cref="IItem"/>
 /// </summary>
-interface ICosmosContainerDefaultTimeToLiveProvider
+public interface ICosmosContainerDefaultTimeToLiveProvider
 {
     /// <summary>
     /// Gets teh default time to live value for an <see cref="IItem"/>

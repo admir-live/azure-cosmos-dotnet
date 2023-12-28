@@ -4,14 +4,14 @@
 namespace Microsoft.Azure.CosmosRepository.Specification;
 
 /// <summary>
-/// Container class for a where predicate
+/// Container  public class for a where predicate
 /// </summary>
 /// <typeparam name="TItem"></typeparam>
 /// <remarks>
 /// Constructor for creating a where expression
 /// </remarks>
 /// <param name="filter"></param>
-public class WhereExpressionInfo<TItem>(Expression<Func<TItem, bool>> filter)
+ public class WhereExpressionInfo<TItem>(Expression<Func<TItem, bool>> filter)
 {
 
     /// <summary>

@@ -1,20 +1,20 @@
 // Copyright (c) David Pine. All rights reserved.
 // Licensed under the MIT License.
 
-// ReSharper disable once CheckNamespace
 
-namespace Microsoft.Azure.CosmosRepository;
+
+namespace Microsoft.Azure.CosmosRepository.Repositories;
 
 /// <summary>
 /// This is the batch enabled repository interface for any implementation of
 /// <typeparamref name="TItem"/>, exposing asynchronous batch update and create functionality.
 /// </summary>
-/// <typeparam name="TItem">The <see cref="IItem"/> implementation class type.</typeparam>
+/// <typeparam name="TItem">The <see cref="IItem"/> implementation  public class type.</typeparam>
 /// <example>
 /// With DI, use .ctor injection to require any implementation of <see cref="IItem"/>:
 /// <code language="c#">
 /// <![CDATA[
-/// public class ConsumingService
+///  public class ConsumingService
 /// {
 ///     readonly IBatchRepository<SomePoco> _pocoRepository;
 ///

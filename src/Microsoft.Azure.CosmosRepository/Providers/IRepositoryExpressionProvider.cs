@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Providers;
 
-interface IRepositoryExpressionProvider
+public interface IRepositoryExpressionProvider
 {
     Expression<Func<TItem, bool>> Build<TItem>(Expression<Func<TItem, bool>> predicate) where TItem : IItem;
 

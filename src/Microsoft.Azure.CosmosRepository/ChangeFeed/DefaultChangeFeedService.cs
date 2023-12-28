@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.ChangeFeed;
 
-class DefaultChangeFeedService(IEnumerable<IChangeFeedContainerProcessorProvider> changeFeedContainerProcessorProvider) : IChangeFeedService
+ public class DefaultChangeFeedService(IEnumerable<IChangeFeedContainerProcessorProvider> changeFeedContainerProcessorProvider) : IChangeFeedService
 {
     private IEnumerable<IContainerChangeFeedProcessor> _processors = new List<IContainerChangeFeedProcessor>();
 

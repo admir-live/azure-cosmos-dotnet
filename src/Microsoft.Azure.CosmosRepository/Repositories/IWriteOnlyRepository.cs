@@ -1,18 +1,18 @@
 ﻿// Copyright (c) David Pine. All rights reserved.
 // Licensed under the MIT License.
 
-namespace Microsoft.Azure.CosmosRepository;
+namespace Microsoft.Azure.CosmosRepository.Repositories;
 
 /// <summary>
 /// This is the write-only repository interface for any implementation of
 /// <typeparamref name="TItem"/>, exposing asynchronous create, update, and delete functionality.
 /// </summary>
-/// <typeparam name="TItem">The <see cref="IItem"/> implementation class type.</typeparam>
+/// <typeparam name="TItem">The <see cref="IItem"/> implementation  public class type.</typeparam>
 /// <example>
 /// With DI, use .ctor injection to require any implementation of <see cref="IItem"/>:
 /// <code language="c#">
 /// <![CDATA[
-/// public class ConsumingService
+///  public class ConsumingService
 /// {
 ///     readonly IWriteOnlyRepository<SomePoco> _pocoRepository;
 ///
@@ -30,7 +30,7 @@ public interface IWriteOnlyRepository<TItem> where TItem : IItem
     /// </summary>
     /// <param name="value">The item value to create.</param>
     /// <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
-    /// <returns>A <see cref="ValueTask{TItem}"/> representing the <see cref="IItem"/> implementation class instance as a <typeparamref name="TItem"/>.</returns>
+    /// <returns>A <see cref="ValueTask{TItem}"/> representing the <see cref="IItem"/> implementation  public class instance as a <typeparamref name="TItem"/>.</returns>
     ValueTask<TItem> CreateAsync(
         TItem value,
         CancellationToken cancellationToken = default);
@@ -51,7 +51,7 @@ public interface IWriteOnlyRepository<TItem> where TItem : IItem
     /// <param name="value">The item value to update.</param>
     /// <param name="ignoreEtag">When TItem implements IItemWithEtag the etag will be verified on all updates. Setting this flag to true indicates that the etag should be ignored.</param>
     /// <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
-    /// <returns>A <see cref="ValueTask{TItem}"/> representing the <see cref="IItem"/> implementation class instance as a <typeparamref name="TItem"/>.</returns>
+    /// <returns>A <see cref="ValueTask{TItem}"/> representing the <see cref="IItem"/> implementation  public class instance as a <typeparamref name="TItem"/>.</returns>
     ValueTask<TItem> UpdateAsync(
         TItem value,
         bool ignoreEtag = false,

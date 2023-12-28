@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Validators;
 
-interface IRepositoryOptionsValidator
+public interface IRepositoryOptionsValidator
 {
     void ValidateForContainerCreation(IOptions<RepositoryOptions> options);
 }

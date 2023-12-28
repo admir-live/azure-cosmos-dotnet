@@ -26,14 +26,14 @@ several properties, one which is a globally unique identifier defined as:
 public string Id { get; set; } = Guid.NewGuid().ToString();
 ```
 
-Additionally, a type property exists which indicates the subclass name (this is used for filtering implicitly on your behalf):
+Additionally, a type property exists which indicates the sub public class name (this is used for filtering implicitly on your behalf):
 
 ```csharp
 [JsonProperty("type")]
 public string Type { get; set; }
 ```
 
-Finally, a partition key property is used internally to manage partitioning on your behalf. This can optionally be overridden on an item per item basis.
+Finally, a partition key property is used ly to manage partitioning on your behalf. This can optionally be overridden on an item per item basis.
 
 📣 [Azure Cosmos DB - Official Blog](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-db-repository-net-sdk-v-1-0-4)
 
@@ -71,7 +71,7 @@ Finally, a partition key property is used internally to manage partitioning on y
    ```csharp
    using Microsoft.Azure.CosmosRepository;
 
-   public class Person : Item
+    public class Person : Item
    {
        public string FirstName { get; set; }
        public string LastName { get; set; }
@@ -83,7 +83,7 @@ Finally, a partition key property is used internally to manage partitioning on y
    ```csharp
    using Microsoft.Azure.CosmosRepository;
 
-   public class Consumer
+    public class Consumer
    {
        readonly IRepository<Person> _repository;
 

@@ -10,44 +10,44 @@ namespace Microsoft.Azure.CosmosRepository.Builders;
 /// Creates an instance of <see cref="ContainerOptionsBuilder"/>.
 /// </remarks>
 /// <param name="type">The type of <see cref="IItem"/> the options are for.</param>
-public class ContainerOptionsBuilder(Type type)
+ public class ContainerOptionsBuilder(Type type)
 {
     /// <summary>
     /// The <see cref="IItem"/> type the container options are for
     /// </summary>
-    internal Type Type { get; } = type;
+    public Type Type { get; } = type;
 
     /// <summary>
     /// Name of the container.
     /// </summary>
-    internal string? Name { get; private set; }
+    public string? Name { get;set; }
 
     /// <summary>
     /// The partition key for the container.
     /// </summary>
-    internal string? PartitionKey { get; private set; }
+    public string? PartitionKey { get;set; }
 
     /// <summary>
     /// The default time to live for a container.
     /// </summary>
     /// <remarks>If <see cref="Item"/> share a container they will share this property.</remarks>
-    internal TimeSpan? ContainerDefaultTimeToLive { get; private set; }
+    public TimeSpan? ContainerDefaultTimeToLive { get;set; }
 
     /// <summary>
     /// Syncs the container properties when the container is first created.
     /// </summary>
     /// <remarks>This can sync settings such as <see cref="ContainerDefaultTimeToLive"/></remarks>
-    internal bool SyncContainerProperties { get; private set; }
+    public bool SyncContainerProperties { get;set; }
 
     /// <summary>
     /// The <see cref="ThroughputProperties"/> for the given container.
     /// </summary>
     /// <remarks>By default this uses a manual throughput reserved at 400 RU/s in line with the Cosmos SDK.</remarks>
-    internal ThroughputProperties? ThroughputProperties { get; private set; } = ThroughputProperties.CreateManualThroughput(400);
+    public ThroughputProperties? ThroughputProperties { get;set; } = ThroughputProperties.CreateManualThroughput(400);
 
-    internal ChangeFeedOptions? ChangeFeedOptions { get; private set; } = null;
+     public ChangeFeedOptions? ChangeFeedOptions { get;set; } = null;
 
-    internal bool UseStrictTypeChecking { get; set; } = true;
+     public bool UseStrictTypeChecking { get; set; } = true;
 
     /// <summary>
     /// Sets the <see cref="ContainerDefaultTimeToLive"/> for a container.

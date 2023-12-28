@@ -11,7 +11,7 @@ namespace Microsoft.Azure.CosmosRepository.Exceptions;
 /// Creates <see cref="BatchOperationException{TItem}"/>
 /// </remarks>
 /// <param name="response"></param>
-public class BatchOperationException<TItem>(TransactionalBatchResponse response) : Exception(
+ public class BatchOperationException<TItem>(TransactionalBatchResponse response) : Exception(
     $"Failed to execute the batch operation for {typeof(TItem).Name}")
     where TItem : IItem
 {

@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Providers;
 
-class DefaultCosmosClientProvider : ICosmosClientProvider, IDisposable
+ public class DefaultCosmosClientProvider : ICosmosClientProvider, IDisposable
 {
     readonly Lazy<CosmosClient> _lazyCosmosClient;
     readonly CosmosClientOptions _cosmosClientOptions;

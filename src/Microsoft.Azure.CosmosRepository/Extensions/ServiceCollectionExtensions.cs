@@ -1,12 +1,16 @@
 ﻿// Copyright (c) David Pine. All rights reserved.
 // Licensed under the MIT License.
 
-namespace Microsoft.Extensions.DependencyInjection;
+using Microsoft.Azure.CosmosRepository.Factories;
+using Microsoft.Azure.CosmosRepository.Internals;
+using Microsoft.Azure.CosmosRepository.Repositories;
+
+namespace Microsoft.Azure.CosmosRepository.Extensions;
 
 /// <summary>
 /// Extension methods for adding and configuring the Azure Cosmos DB services.
 /// </summary>
-public static class ServiceCollectionExtensions
+public static  class ServiceCollectionExtensions
 {
     /// <summary>
     /// Adds the services required to consume any number of <see cref="IRepository{TItem}"/>
@@ -68,29 +72,6 @@ public static class ServiceCollectionExtensions
         {
             services.PostConfigure(setupAction);
         }
-
-        return services;
-    }
-
-    /// <summary>
-    /// Adds the services required to run the in memory implementation of the cosmos repository.
-    /// </summary>
-    /// <param name="services">The service collection to add services to.</param>
-    /// <returns></returns>
-    public static IServiceCollection AddInMemoryCosmosRepository(this IServiceCollection services)
-    {
-        if (services is null)
-        {
-            throw new ArgumentNullException(
-                nameof(services), "A service collection is required.");
-        }
-
-        services
-            .AddSingleton(typeof(IReadOnlyRepository<>), typeof(InMemoryRepository<>))
-            .AddSingleton(typeof(IWriteOnlyRepository<>), typeof(InMemoryRepository<>))
-            .AddSingleton(typeof(IRepository<>), typeof(InMemoryRepository<>))
-            .AddSingleton<IRepositoryFactory, DefaultRepositoryFactory>()
-            .AddSingleton(typeof(InMemoryChangeFeed<>));
 
         return services;
     }

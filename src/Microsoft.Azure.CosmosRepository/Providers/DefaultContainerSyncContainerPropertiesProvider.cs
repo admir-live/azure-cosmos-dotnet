@@ -4,7 +4,7 @@
 namespace Microsoft.Azure.CosmosRepository.Providers;
 
 /// <inheritdoc />
-class DefaultContainerSyncContainerPropertiesProvider(IOptions<RepositoryOptions> options) : ICosmosContainerSyncContainerPropertiesProvider
+ public class DefaultContainerSyncContainerPropertiesProvider(IOptions<RepositoryOptions> options) : ICosmosContainerSyncContainerPropertiesProvider
 {
 
     /// <inheritdoc />

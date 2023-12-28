@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Extensions;
 
-internal static class TypeExtensions
+ public static class TypeExtensions
 {
     public static void IsItem(this Type type)
     {

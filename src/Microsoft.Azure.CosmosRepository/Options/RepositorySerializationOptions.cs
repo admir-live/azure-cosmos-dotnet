@@ -7,7 +7,7 @@ namespace Microsoft.Azure.CosmosRepository.Options;
 /// The serialization options for the Cosmos DB repository.
 /// These are mapped to the <see cref="CosmosClientOptions.SerializerOptions"/> object.
 /// </summary>
-public class RepositorySerializationOptions
+ public class RepositorySerializationOptions
 {
     /// <summary>
     /// Gets or sets if the serializer should ignore null properties.
@@ -29,7 +29,7 @@ public class RepositorySerializationOptions
     public CosmosPropertyNamingPolicy PropertyNamingPolicy { get; set; } = CosmosPropertyNamingPolicy.CamelCase;
 
     /// <summary>
-    /// Defines an implicit operator for which allows the <see cref="RepositorySerializationOptions"/> to be converted 
+    /// Defines an implicit operator for which allows the <see cref="RepositorySerializationOptions"/> to be converted
     /// to a <see cref="CosmosSerializationOptions"/>.
     /// </summary>
     /// <param name="options">The source options to map from.</param>
@@ -43,7 +43,7 @@ public class RepositorySerializationOptions
         };
 
     /// <summary>
-    /// Defines an implicit operator for which allows the <see cref="RepositorySerializationOptions"/> to be converted 
+    /// Defines an implicit operator for which allows the <see cref="RepositorySerializationOptions"/> to be converted
     /// to a <see cref="CosmosLinqSerializerOptions"/>.
     /// </summary>
     /// <param name="options">The source options to map from.</param>

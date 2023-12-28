@@ -4,7 +4,7 @@
 namespace Microsoft.Azure.CosmosRepository.Providers;
 
 /// <inheritdoc/>
-class DefaultCosmosThroughputProvider(IOptions<RepositoryOptions> options) : ICosmosThroughputProvider
+ public class DefaultCosmosThroughputProvider(IOptions<RepositoryOptions> options) : ICosmosThroughputProvider
 {
 
     /// <inheritdoc/>

@@ -3,14 +3,14 @@
 
 namespace Microsoft.Azure.CosmosRepository.Extensions;
 
-internal class ParameterRebinder : ExpressionVisitor
+  public class ParameterRebinder : ExpressionVisitor
 {
     readonly Dictionary<ParameterExpression, ParameterExpression> _map;
 
-    internal ParameterRebinder(Dictionary<ParameterExpression, ParameterExpression> map) =>
+     ParameterRebinder(Dictionary<ParameterExpression, ParameterExpression> map) =>
         _map = map ?? new();
 
-    internal static Expression ReplaceParameters(
+     public static Expression ReplaceParameters(
         Dictionary<ParameterExpression, ParameterExpression> map, Expression exp) =>
         new ParameterRebinder(map).Visit(exp);
 

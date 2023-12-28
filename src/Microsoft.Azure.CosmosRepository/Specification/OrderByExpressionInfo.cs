@@ -7,7 +7,7 @@ namespace Microsoft.Azure.CosmosRepository.Specification;
 ///
 /// </summary>
 /// <typeparam name="TItem"></typeparam>
-public class OrderExpressionInfo<TItem>
+ public class OrderExpressionInfo<TItem>
     where TItem : IItem
 {
     private readonly Lazy<Func<TItem, object>> _keySelectorFunc;

@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Logging;
 
-internal static class LoggerExtensions
+ public  static class LoggerExtensions
 {
     //Debug Logger Extensions
     public static void LogItemRead<TItem>(

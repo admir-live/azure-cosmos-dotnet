@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Internals;
 
-internal class InternalPatchOperation(PropertyInfo propertyInfo, object? newValue, PatchOperationType type)
+  public class PatchOperation(PropertyInfo propertyInfo, object? newValue, PatchOperationType type)
 {
     public PatchOperationType Type { get; } = type;
     public PropertyInfo PropertyInfo { get; } = propertyInfo;

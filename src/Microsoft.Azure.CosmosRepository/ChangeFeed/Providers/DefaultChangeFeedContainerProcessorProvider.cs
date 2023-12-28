@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.ChangeFeed.Providers;
 
-internal class DefaultChangeFeedContainerProcessorProvider(
+  public class DefaultChangeFeedContainerProcessorProvider(
     IOptionsMonitor<RepositoryOptions> optionsMonitor,
     ICosmosContainerService containerService,
     ILeaseContainerProvider leaseContainerProvider,

@@ -6,7 +6,7 @@ namespace Microsoft.Azure.CosmosRepository.Extensions;
 /// <summary>
 /// Some useful extensions to pull values that will ve populated into <see cref="RepositoryOptions"/> from configuration
 /// </summary>
-public static class ConfigurationExtensions
+public static  class ConfigurationExtensions
 {
     /// <summary>
     /// Gets the connection string value from configuration.

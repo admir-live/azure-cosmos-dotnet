@@ -4,7 +4,7 @@
 namespace Microsoft.Azure.CosmosRepository.Providers;
 
 /// <inheritdoc />
-class DefaultCosmosUniqueKeyPolicyProvider : ICosmosUniqueKeyPolicyProvider
+ public class DefaultCosmosUniqueKeyPolicyProvider : ICosmosUniqueKeyPolicyProvider
 {
     static readonly Type s_attributeType = typeof(UniqueKeyAttribute);
 
@@ -14,7 +14,9 @@ class DefaultCosmosUniqueKeyPolicyProvider : ICosmosUniqueKeyPolicyProvider
 
     public UniqueKeyPolicy? GetUniqueKeyPolicy(Type itemType)
     {
-        Dictionary<string, List<string>> keyNameToPathsMap = [];
+        Dictionary<string, List<string>> keyNameToPathsMap = new()
+        {
+        };
 
         foreach ((UniqueKeyAttribute? uniqueKey, var propertyName) in itemType.GetProperties()
                      .Where(x => Attribute.IsDefined(x, s_attributeType))
@@ -31,7 +33,7 @@ class DefaultCosmosUniqueKeyPolicyProvider : ICosmosUniqueKeyPolicyProvider
                 continue;
             }
 
-            keyNameToPathsMap[uniqueKey.KeyName] = [propertyValue];
+           // keyNameToPathsMap[uniqueKey.KeyName] = [propertyValue];
         }
 
         if (!keyNameToPathsMap.Any())

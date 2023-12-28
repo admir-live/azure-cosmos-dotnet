@@ -7,7 +7,7 @@ namespace Microsoft.Azure.CosmosRepository.Providers;
 /// The cosmos partition key path provider exposes the ability
 /// to get an <see cref="IItem"/>'s partition key path.
 /// </summary>
-interface ICosmosUniqueKeyPolicyProvider
+public interface ICosmosUniqueKeyPolicyProvider
 {
     /// <summary>
     /// Gets the unique key policy for a given <typeparamref name="TItem"/> type.

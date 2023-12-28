@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Processors;
 
-interface ICosmosQueryableProcessor
+public interface ICosmosQueryableProcessor
 {
     ValueTask<(IEnumerable<TItem> items, double charge)> IterateAsync<TItem>(IQueryable<TItem> queryable, CancellationToken cancellationToken = default) where TItem : IItem;
 

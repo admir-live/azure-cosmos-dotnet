@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Providers;
 
-class DefaultCosmosStrictTypeCheckingProvider(IOptions<RepositoryOptions> options) : ICosmosStrictTypeCheckingProvider
+ public class DefaultCosmosStrictTypeCheckingProvider(IOptions<RepositoryOptions> options) : ICosmosStrictTypeCheckingProvider
 {
     public bool UseStrictTypeChecking<TItem>() where TItem : IItem =>
         UseStrictTypeChecking(typeof(TItem));

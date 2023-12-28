@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Validators;
 
-class DefaultRepositoryOptionsValidator : IRepositoryOptionsValidator
+ public class DefaultRepositoryOptionsValidator : IRepositoryOptionsValidator
 {
     private const string SingularErrorMessage = "An error was encountered";
     private const string PluralErrorMessage = "Multiple errors were encountered";
@@ -17,7 +17,9 @@ class DefaultRepositoryOptionsValidator : IRepositoryOptionsValidator
             throw new ArgumentNullException(nameof(options), "Repository option are required");
         }
 
-        List<Exception> exceptionsEncountered = [];
+        List<Exception> exceptionsEncountered = new()
+        {
+        };
 
         (var connectionStringIsNull, var accountEndpointIsNull, var tokenCredentialIsNull, var databaseIdIsNull, var containerIdIsNull, var containerPerType) = (
             current.CosmosConnectionString is null,

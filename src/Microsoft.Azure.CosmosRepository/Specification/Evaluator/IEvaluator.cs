@@ -3,7 +3,7 @@
 
 namespace Microsoft.Azure.CosmosRepository.Specification.Evaluator;
 
-internal interface IEvaluator
+ interface IEvaluator
 {
     bool IsFilterEvaluator { get; }
 

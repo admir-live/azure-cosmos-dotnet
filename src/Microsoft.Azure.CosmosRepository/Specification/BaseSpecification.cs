@@ -13,7 +13,7 @@ public abstract class BaseSpecification<TItem, TResult> : ISpecification<TItem, 
 
 
     /// <summary>
-    /// The specification query builder. Always use this object when interacting with the specifications. All other properties are readonly or internal set;
+    /// The specification query builder. Always use this object when interacting with the specifications. All other properties are readonly or  set;
     /// </summary>
     protected ISpecificationBuilder<TItem, TResult> Query { get; }
 
@@ -23,10 +23,10 @@ public abstract class BaseSpecification<TItem, TResult> : ISpecification<TItem, 
     protected BaseSpecification() =>
         Query = new SpecificationBuilder<TItem, TResult>(this);
 
-    internal void Add(WhereExpressionInfo<TItem> expression) =>
+    public void Add(WhereExpressionInfo<TItem> expression) =>
         _whereExpressions.Add(expression);
 
-    internal void Add(OrderExpressionInfo<TItem> expression) =>
+    public void Add(OrderExpressionInfo<TItem> expression) =>
         _orderExpressions.Add(expression);
 
     /// <inheritdoc/>
@@ -38,16 +38,16 @@ public abstract class BaseSpecification<TItem, TResult> : ISpecification<TItem, 
         _orderExpressions;
 
     /// <inheritdoc/>
-    public string? ContinuationToken { get; internal set; }
+    public string? ContinuationToken { get;  set; }
 
     /// <inheritdoc/>
-    public int? PageNumber { get; internal set; }
+    public int? PageNumber { get;  set; }
 
     /// <inheritdoc/>
-    public int PageSize { get; internal set; } = 25;
+    public int PageSize { get;  set; } = 25;
 
     /// <inheritdoc/>
-    public bool UseContinuationToken { get; internal set; }
+    public bool UseContinuationToken { get;  set; }
 
     /// <inheritdoc/>
     public abstract TResult PostProcessingAction(

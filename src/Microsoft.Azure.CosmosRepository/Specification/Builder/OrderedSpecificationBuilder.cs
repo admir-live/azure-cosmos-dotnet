@@ -4,12 +4,12 @@
 namespace Microsoft.Azure.CosmosRepository.Specification.Builder;
 
 /// <inheritdoc cref="IOrderedSpecificationBuilder{TItem, TResult}"/>
-internal class OrderedSpecificationBuilder<TItem, TResult> :
+  public class OrderedSpecificationBuilder<TItem, TResult> :
     SpecificationBuilder<TItem, TResult>, IOrderedSpecificationBuilder<TItem, TResult>
     where TItem : IItem
     where TResult : IQueryResult<TItem>
 {
-    internal OrderedSpecificationBuilder(BaseSpecification<TItem, TResult> specification) : base(specification)
+    public OrderedSpecificationBuilder(BaseSpecification<TItem, TResult> specification) : base(specification)
     {
     }
 
