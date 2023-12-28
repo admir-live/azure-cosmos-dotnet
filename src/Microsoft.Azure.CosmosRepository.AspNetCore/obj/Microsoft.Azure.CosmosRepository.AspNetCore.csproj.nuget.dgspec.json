@@ -1,0 +1,171 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Infinty\\RiderProjects\\azure-cosmos-dotnet\\src\\Microsoft.Azure.CosmosRepository.AspNetCore\\Microsoft.Azure.CosmosRepository.AspNetCore.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Infinty\\RiderProjects\\azure-cosmos-dotnet\\src\\Microsoft.Azure.CosmosRepository.AspNetCore\\Microsoft.Azure.CosmosRepository.AspNetCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Infinty\\RiderProjects\\azure-cosmos-dotnet\\src\\Microsoft.Azure.CosmosRepository.AspNetCore\\Microsoft.Azure.CosmosRepository.AspNetCore.csproj",
+        "projectName": "Microsoft.Azure.CosmosRepository.AspNetCore",
+        "projectPath": "C:\\Users\\Infinty\\RiderProjects\\azure-cosmos-dotnet\\src\\Microsoft.Azure.CosmosRepository.AspNetCore\\Microsoft.Azure.CosmosRepository.AspNetCore.csproj",
+        "packagesPath": "C:\\Users\\Infinty\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Infinty\\RiderProjects\\azure-cosmos-dotnet\\src\\Microsoft.Azure.CosmosRepository.AspNetCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Infinty\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Infinty\\RiderProjects\\azure-cosmos-dotnet\\src\\Microsoft.Azure.CosmosRepository\\Microsoft.Azure.CosmosRepository.csproj": {
+                "projectPath": "C:\\Users\\Infinty\\RiderProjects\\azure-cosmos-dotnet\\src\\Microsoft.Azure.CosmosRepository\\Microsoft.Azure.CosmosRepository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "noWarn": [
+            "NU5105"
+          ],
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AspNetCore.HealthChecks.CosmosDb": {
+              "target": "Package",
+              "version": "(, )"
+            },
+            "MinVer": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "(, )"
+            },
+            "Scrutor": {
+              "target": "Package",
+              "version": "(, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Infinty\\RiderProjects\\azure-cosmos-dotnet\\src\\Microsoft.Azure.CosmosRepository\\Microsoft.Azure.CosmosRepository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Infinty\\RiderProjects\\azure-cosmos-dotnet\\src\\Microsoft.Azure.CosmosRepository\\Microsoft.Azure.CosmosRepository.csproj",
+        "projectName": "Microsoft.Azure.CosmosRepository",
+        "projectPath": "C:\\Users\\Infinty\\RiderProjects\\azure-cosmos-dotnet\\src\\Microsoft.Azure.CosmosRepository\\Microsoft.Azure.CosmosRepository.csproj",
+        "packagesPath": "C:\\Users\\Infinty\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Infinty\\RiderProjects\\azure-cosmos-dotnet\\src\\Microsoft.Azure.CosmosRepository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Infinty\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "noWarn": [
+            "NU5105"
+          ],
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.Azure.Cosmos": {
+              "target": "Package",
+              "version": "(, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "(, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "(, )"
+            },
+            "Microsoft.Extensions.Options.ConfigurationExtensions": {
+              "target": "Package",
+              "version": "(, )"
+            },
+            "MinVer": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "(, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

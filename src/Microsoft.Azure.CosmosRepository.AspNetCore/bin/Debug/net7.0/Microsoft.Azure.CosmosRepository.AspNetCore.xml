@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Azure.CosmosRepository.AspNetCore</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Azure.CosmosRepository.AspNetCore.CosmosRepositoryChangeFeedHostedService">
+            <summary>
+            A <see cref="T:Microsoft.Extensions.Hosting.BackgroundService"/> to start and stop the <see cref="T:Microsoft.Azure.CosmosRepository.ChangeFeed.IChangeFeedService"/>
+            </summary>
+            <remarks>
+            Creates an instance of the <see cref="T:Microsoft.Azure.CosmosRepository.AspNetCore.CosmosRepositoryChangeFeedHostedService"/>
+            </remarks>
+            <param name="changeFeedService">The <see cref="T:Microsoft.Azure.CosmosRepository.ChangeFeed.IChangeFeedService"/> to start.</param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.AspNetCore.CosmosRepositoryChangeFeedHostedService.#ctor(Microsoft.Azure.CosmosRepository.ChangeFeed.IChangeFeedService)">
+            <summary>
+            A <see cref="T:Microsoft.Extensions.Hosting.BackgroundService"/> to start and stop the <see cref="T:Microsoft.Azure.CosmosRepository.ChangeFeed.IChangeFeedService"/>
+            </summary>
+            <remarks>
+            Creates an instance of the <see cref="T:Microsoft.Azure.CosmosRepository.AspNetCore.CosmosRepositoryChangeFeedHostedService"/>
+            </remarks>
+            <param name="changeFeedService">The <see cref="T:Microsoft.Azure.CosmosRepository.ChangeFeed.IChangeFeedService"/> to start.</param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.AspNetCore.CosmosRepositoryChangeFeedHostedService.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Start's the <see cref="T:Microsoft.Azure.CosmosRepository.ChangeFeed.IChangeFeedService"/>
+            </summary>
+            <param name="stoppingToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.AspNetCore.Extensions.HealthChecksBuilderExtensions.AddCosmosRepository(Microsoft.Extensions.DependencyInjection.IHealthChecksBuilder,System.String,System.Nullable{Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.TimeSpan},System.Reflection.Assembly[])">
+            <summary>
+            Add a health check for Azure Cosmos DB by registering <see cref="T:HealthChecks.CosmosDb.AzureCosmosDbHealthCheck"/> for given <paramref name="builder"/>.
+            </summary>
+            <param name="builder">The <see cref="T:Microsoft.Extensions.DependencyInjection.IHealthChecksBuilder"/> to add <see cref="T:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckRegistration"/> to.</param>
+            <param name="healthCheckName">The health check name. Optional. If <c>null</c> the name 'azure_cosmosdb' will be used.</param>
+            <param name="failureStatus">
+            The <see cref="T:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus"/> that should be reported when the health check fails. Optional. If <c>null</c> then
+            the default status of <see cref="F:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy"/> will be reported.
+            </param>
+            <param name="tags">A list of tags that can be used to filter sets of health checks. Optional.</param>
+            <param name="timeout">An optional <see cref="T:System.TimeSpan"/> representing the timeout of the check.</param>
+            <param name="assemblies">The assemblies to scan for <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> types. Optional. If <c>null</c> types are discovered autimatically. Providing a assemblies to scan may reduce start up time.</param>
+            <returns>The specified <paramref name="builder"/>.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.AspNetCore.Extensions.ServiceCollectionExtensions">
+            <summary>
+            Extension methods for adding and configuring the Azure Cosmos DB services when running on ASP.NET CORE.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.AspNetCore.Extensions.ServiceCollectionExtensions.AddCosmosRepositoryChangeFeedHostedService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the hosted service to process changes from any number of cosmos containers.
+            </summary>
+            <param name="services">The service collection to add services to.</param>
+            <returns>The same service collection that was provided, with the <see cref="T:Microsoft.Azure.CosmosRepository.AspNetCore.CosmosRepositoryChangeFeedHostedService"/></returns>
+            <remarks>Please ensure this is called in conjunction with services.AddCosmosRepository(...)</remarks>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.AspNetCore.Extensions.ServiceCollectionExtensions.AddCosmosRepositoryItemChangeFeedProcessors(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly[])">
+            <summary>
+            Adds the given <see cref="T:Microsoft.Azure.CosmosRepository.ChangeFeed.IItemChangeFeedProcessor`1"/> defined in the given assemblies.
+            </summary>
+            <param name="services">The service collection to add services to.</param>
+            <param name="assemblies">The assemblies to scan for <see cref="T:Microsoft.Azure.CosmosRepository.ChangeFeed.IItemChangeFeedProcessor`1"/>'s.</param>
+            <returns>The same service collection that was provided, with the found <see cref="T:Microsoft.Azure.CosmosRepository.ChangeFeed.IItemChangeFeedProcessor`1"/>'s registered as singletons.</returns>
+        </member>
+    </members>
+</doc>

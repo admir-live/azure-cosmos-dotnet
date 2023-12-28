@@ -1,0 +1,2215 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Azure.CosmosRepository</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Azure.CosmosRepository.Attributes.ContainerAttribute">
+            <summary>
+            The container attribute exposes the ability to declaratively
+            specify an <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s container name. This attribute can only be used when
+            <see cref="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.ContainerPerItemType"/> is set to <c>true</c>.
+            </summary>
+            <remarks>
+            Constructor accepting the <paramref name="name"/> of the container for a given <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>.
+            </remarks>
+            <param name="name"></param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Attributes.ContainerAttribute.#ctor(System.String)">
+            <summary>
+            The container attribute exposes the ability to declaratively
+            specify an <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s container name. This attribute can only be used when
+            <see cref="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.ContainerPerItemType"/> is set to <c>true</c>.
+            </summary>
+            <remarks>
+            Constructor accepting the <paramref name="name"/> of the container for a given <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>.
+            </remarks>
+            <param name="name"></param>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Attributes.ContainerAttribute.Name">
+            <summary>
+            Gets the path of the parition key.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Attributes.PartitionKeyPathAttribute">
+            <summary>
+            The partition key path attribute exposes the ability to declaratively
+            specify an <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> partition key path. This attribute should be used in
+            conjunction with a <see cref="T:Newtonsoft.Json.JsonPropertyAttribute"/> on the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> property
+            whose value will act as the partition key. Partition key paths should start with "/",
+            for example "/partition". For more information,
+            see https://docs.microsoft.com/azure/cosmos-db/partitioning-overview.
+            </summary>
+            <remarks>
+            By default, "/id" is used.
+            </remarks>
+            <remarks>
+            Constructor accepting the <paramref name="path"/> of the partition key for a given <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>.
+            </remarks>
+            <param name="path"></param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Attributes.PartitionKeyPathAttribute.#ctor(System.String)">
+            <summary>
+            The partition key path attribute exposes the ability to declaratively
+            specify an <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> partition key path. This attribute should be used in
+            conjunction with a <see cref="T:Newtonsoft.Json.JsonPropertyAttribute"/> on the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> property
+            whose value will act as the partition key. Partition key paths should start with "/",
+            for example "/partition". For more information,
+            see https://docs.microsoft.com/azure/cosmos-db/partitioning-overview.
+            </summary>
+            <remarks>
+            By default, "/id" is used.
+            </remarks>
+            <remarks>
+            Constructor accepting the <paramref name="path"/> of the partition key for a given <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>.
+            </remarks>
+            <param name="path"></param>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Attributes.PartitionKeyPathAttribute.Path">
+            <summary>
+            Gets the path of the parition key.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Attributes.UniqueKeyAttribute">
+            <summary>
+            The unique key attribute exposes the ability to declaratively
+            specify an <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s properties that can contribute to a unique key constraint.
+            For more information, see https://docs.microsoft.com/azure/cosmos-db/unique-keys.
+            </summary>
+            <remarks>
+            Constructor accepting the <paramref name="keyName"/> for a given <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s property.
+            </remarks>
+            <param name="keyName"></param>
+            <param name="propertyPath">The property path to match for the constraint</param>
+            <remarks>If the propertyPath is null the name of the property this is defined will be used.</remarks>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Attributes.UniqueKeyAttribute.#ctor(System.String,System.String)">
+            <summary>
+            The unique key attribute exposes the ability to declaratively
+            specify an <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s properties that can contribute to a unique key constraint.
+            For more information, see https://docs.microsoft.com/azure/cosmos-db/unique-keys.
+            </summary>
+            <remarks>
+            Constructor accepting the <paramref name="keyName"/> for a given <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s property.
+            </remarks>
+            <param name="keyName"></param>
+            <param name="propertyPath">The property path to match for the constraint</param>
+            <remarks>If the propertyPath is null the name of the property this is defined will be used.</remarks>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Attributes.UniqueKeyAttribute.KeyName">
+            <summary>
+            Gets the key name that represents the unique key.
+            </summary>
+            <remarks>This is the unique name to match a set of paths on</remarks>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Attributes.UniqueKeyAttribute.PropertyPath">
+            <summary>
+            The property path to use for the key
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder">
+            <summary>
+            Options for a container
+            </summary>
+            <remarks>
+            Creates an instance of <see cref="T:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder"/>.
+            </remarks>
+            <param name="type">The type of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> the options are for.</param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.#ctor(System.Type)">
+            <summary>
+            Options for a container
+            </summary>
+            <remarks>
+            Creates an instance of <see cref="T:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder"/>.
+            </remarks>
+            <param name="type">The type of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> the options are for.</param>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.Type">
+            <summary>
+            The <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> type the container options are for
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.Name">
+            <summary>
+            Name of the container.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.PartitionKey">
+            <summary>
+            The partition key for the container.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.ContainerDefaultTimeToLive">
+            <summary>
+            The default time to live for a container.
+            </summary>
+            <remarks>If <see cref="T:Microsoft.Azure.CosmosRepository.Item"/> share a container they will share this property.</remarks>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.SyncContainerProperties">
+            <summary>
+            Syncs the container properties when the container is first created.
+            </summary>
+            <remarks>This can sync settings such as <see cref="P:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.ContainerDefaultTimeToLive"/></remarks>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.ThroughputProperties">
+            <summary>
+            The <see cref="P:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.ThroughputProperties"/> for the given container.
+            </summary>
+            <remarks>By default this uses a manual throughput reserved at 400 RU/s in line with the Cosmos SDK.</remarks>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.WithContainerDefaultTimeToLive(System.TimeSpan)">
+            <summary>
+            Sets the <see cref="P:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.ContainerDefaultTimeToLive"/> for a container.
+            </summary>
+            <param name="containerDefaultTimeToLive">The default time to live for the container.</param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.WithContainer(System.String)">
+            <summary>
+            Sets the <see cref="P:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.Name"/> of the container
+            </summary>
+            <param name="name">The name of the container</param>
+            <returns>Instance of <see cref="T:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder"/></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.WithPartitionKey(System.String)">
+            <summary>
+            Sets the partition key for the container
+            </summary>
+            <param name="partitionKey">The partition key for the container</param>
+            <returns>Instance of <see cref="T:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder"/></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.WithSyncableContainerProperties">
+            <summary>
+            Sets <see cref="P:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.SyncContainerProperties"/> to true
+            </summary>
+            <returns>Instance of <see cref="T:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder"/></returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.WithManualThroughput(System.Int32)">
+            <summary>
+            Sets the container for this <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> to use a manual throughput value.
+            </summary>
+            <param name="throughput">The RU/s that this container can utilise.</param>
+            <remarks>This value must be at least 400 RU/s.</remarks>
+            <remarks>If a container has already been created without specifying a throughput then it cannot be updated.</remarks>
+            <exception cref="T:System.InvalidOperationException">When the RU/s is less than 400.</exception>
+            <returns>Instance of <see cref="T:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder"/></returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.WithAutoscaleThroughput(System.Int32)">
+            <summary>
+            Sets the container for this <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> to use a autoscale throughput value.
+            </summary>
+            <param name="maxAutoScaleThroughput">The maximum RU/s that this containers throughput can autoscale to.</param>
+            <remarks>If a container has already been created without specifying a throughput then it cannot be updated.</remarks>
+            <returns>Instance of <see cref="T:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder"/></returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.WithServerlessThroughput">
+            <summary>
+            When your Cosmos DB resource is
+            <a href="https://docs.microsoft.com/azure/cosmos-db/serverless?WC.m_id=dapine">
+            configured for serverless</a>, your containers must explicitly set
+            serverless <see cref="P:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.ThroughputProperties"/>.
+            </summary>
+            <returns>Instance of <see cref="T:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder"/></returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.WithChangeFeedMonitoring(System.Action{Microsoft.Azure.CosmosRepository.ChangeFeed.ChangeFeedOptions})">
+            <summary>
+            Adds monitoring of the change feed for the given <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>
+            </summary>
+            <param name="optionsActions">An action to configure the change feed for the given container.</param>
+            <returns>Instance of <see cref="T:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder"/></returns>
+            <remarks>The options configured here are for the container, not just the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> be aware if item's share a container they will share the same change feed options.</remarks>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder.WithoutStrictTypeChecking">
+            <summary>
+            Configures the given <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s queries to not check for the Type field.
+            </summary>
+            <remarks>This is useful in scenarios where you have a sub types that will deserialize into a base type.</remarks>
+            <returns>Instance of <see cref="T:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder"/></returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Builders.DefaultItemContainerBuilder">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Builders.IItemContainerBuilder">
+            <summary>
+            A builder to configure a container for an item
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Builders.IItemContainerBuilder.Options">
+            <summary>
+            The list of already configured options for a <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Builders.IItemContainerBuilder.Configure``1(System.Action{Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder})">
+            <summary>
+            Provides a <see cref="T:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder"/> instance to configure a container for an item
+            </summary>
+            <typeparam name="TItem">The type of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> to configure.</typeparam>
+            <returns>Instance of <see cref="T:Microsoft.Azure.CosmosRepository.Builders.IItemContainerBuilder"/></returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Builders.IPatchOperationBuilder`1">
+            <summary>
+            Allows a collection of <see cref="T:Microsoft.Azure.Cosmos.PatchOperation"/>'s to built./>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Builders.IPatchOperationBuilder`1.PatchOperations">
+            <summary>
+            The currently built <see cref="T:Microsoft.Azure.Cosmos.PatchOperation"/>'s
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Builders.IPatchOperationBuilder`1.Replace``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0)">
+            <summary>
+            Allows a property of an <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> to be replaced with the value provided
+            </summary>
+            <param name="expression">The expression to define which property to operate on.</param>
+            <param name="value">The value to replace the property defined with.</param>
+            <typeparam name="TValue">The type of the property that is been replaced.</typeparam>
+            <returns>The same instance of <see cref="T:Microsoft.Azure.CosmosRepository.Builders.IPatchOperationBuilder`1"/></returns>
+            <remarks>This currently only supports operations on properties on the root level of a JSON document,
+            replacing properties on a nested object for example are currently not supported.</remarks>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.ChangeFeed.ChangeFeedOptions">
+            <summary>
+            The options for monitoring the change feed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.ChangeFeed.ChangeFeedOptions.ItemType">
+            <summary>
+            Gets the type for the item being monitored. However, this type will
+            be self-assigned to the <see cref="T:Microsoft.Azure.CosmosRepository.ChangeFeed.ChangeFeedOptions"/> type when
+            the default value options instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.ChangeFeed.ChangeFeedOptions.InstanceName">
+            <summary>
+            The instance name of the processor.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.ChangeFeed.ChangeFeedOptions.PollInterval">
+            <summary>
+            The poll interval to query the change feed processor
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.ChangeFeed.ChangeFeedOptions.ProcessorName">
+            <summary>
+            The processor name provided to the change feed processor library.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.ChangeFeed.IChangeFeedService">
+            <summary>
+            Allows for change feed monitoring.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.ChangeFeed.IChangeFeedService.StartAsync(System.Threading.CancellationToken)">
+            <summary>
+            Starts all configured change feed processors.
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.ChangeFeed.IChangeFeedService.StopAsync">
+            <summary>
+            Stops all configured change feed processors.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.ChangeFeed.IContainerChangeFeedProcessor">
+            <summary>
+            A processor that can process changes from the changed feed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.ChangeFeed.IContainerChangeFeedProcessor.StartAsync">
+            <summary>
+            Starts the processor.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.ChangeFeed.IContainerChangeFeedProcessor.StopAsync">
+            <summary>
+            Stops the processor.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.ChangeFeed.IContainerChangeFeedProcessor.ItemTypes">
+            <summary>
+            The item types that this processor handlers.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.ChangeFeed.IItemChangeFeedProcessor`1">
+            <summary>
+            A processor to process changes for the given <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>
+            </summary>
+            <typeparam name="TItem">The <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> the processor should track changes for.</typeparam>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.ChangeFeed.IItemChangeFeedProcessor`1.HandleAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Handles the changes for the given <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>.
+            </summary>
+            <param name="item">The <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> that has changed.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.ValueTask"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.ChangeFeed.Providers.IChangeFeedContainerProcessorProvider">
+            <summary>
+            Allows an external library to provide its own set of <see cref="T:Microsoft.Azure.CosmosRepository.ChangeFeed.IContainerChangeFeedProcessor"/>'s
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.ChangeFeed.Providers.IChangeFeedContainerProcessorProvider.GetProcessors">
+            <summary>
+            Provides a set of <see cref="T:Microsoft.Azure.CosmosRepository.ChangeFeed.IContainerChangeFeedProcessor"/>'s
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.ChangeFeed.Providers.ILeaseContainerProvider">
+            <summary>
+            Provides access to the lease container.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.ChangeFeed.Providers.ILeaseContainerProvider.GetLeaseContainerAsync">
+            <summary>
+            Gets the lease container.
+            </summary>
+            <returns>A <see cref="T:Microsoft.Azure.Cosmos.Container"/> instance that represents the lease container</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.EtagItem">
+             <summary>
+             A base helper  public class that implements IItemWithEtag
+             </summary>
+             <example>
+             Here is an example sub public class item, which adds several properties:
+             <code language="c#">
+             <![CDATA[
+              public class SubItem : EtagItem
+             {
+                 public DateTimeOffset Date { get; set; }
+                 public string Name { get; set; }
+                 public IEnumerable<Child> Children { get; set; }
+                 public IEnumerable<string> Tags { get; set; }
+             }
+            
+              public class Child
+             {
+                 public string Name { get; set; }
+                 public DateTime BirthDate { get; set; }
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.EtagItem.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.EtagItem.#ctor(System.String)">
+            <summary>
+            A constructor that allows the etag to be set so that items can be mapped to and from other objects
+            </summary>
+            <param name="etag"></param>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.EtagItem.Etag">
+            <summary>
+            Etag for the item which was set by Cosmos the last time the item was updated. This string is used for the relevant operations when specified.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Exceptions.BatchOperationException`1">
+            <summary>
+            Details an error when performing a batch operation for a given TItem
+            </summary>
+            <typeparam name="TItem"></typeparam>
+            <remarks>
+            Creates <see cref="T:Microsoft.Azure.CosmosRepository.Exceptions.BatchOperationException`1"/>
+            </remarks>
+            <param name="response"></param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Exceptions.BatchOperationException`1.#ctor(Microsoft.Azure.Cosmos.TransactionalBatchResponse)">
+            <summary>
+            Details an error when performing a batch operation for a given TItem
+            </summary>
+            <typeparam name="TItem"></typeparam>
+            <remarks>
+            Creates <see cref="T:Microsoft.Azure.CosmosRepository.Exceptions.BatchOperationException`1"/>
+            </remarks>
+            <param name="response"></param>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Exceptions.BatchOperationException`1.Response">
+            <summary>
+             The response from the batch operation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Exceptions.BatchOperationException`1.StatusCode">
+            <summary>
+            The status code return from the <see cref="T:Microsoft.Azure.Cosmos.TransactionalBatchResponse"/>
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Exceptions.InvalidEtagConfigurationException">
+            <summary>
+            An exception stating that the mix of verifyEtag and the Etag value on the item were incompatible.
+            <remarks>
+            Please ensure your Item implementation implements IItemWithEtag.
+            </remarks>
+            </summary>
+            <remarks>
+            Constructor specifying the message to set in the exception.
+            </remarks>
+            <param name="message">The message for the exception.</param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Exceptions.InvalidEtagConfigurationException.#ctor(System.String)">
+            <summary>
+            An exception stating that the mix of verifyEtag and the Etag value on the item were incompatible.
+            <remarks>
+            Please ensure your Item implementation implements IItemWithEtag.
+            </remarks>
+            </summary>
+            <remarks>
+            Constructor specifying the message to set in the exception.
+            </remarks>
+            <param name="message">The message for the exception.</param>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Exceptions.MissMatchedChangeFeedOptionsException">
+            <summary>
+            An exception stating that <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s sharing a container have configured different change feed options.
+            </summary>
+            <remarks>
+            Creates a <see cref="T:Microsoft.Azure.CosmosRepository.Exceptions.MissMatchedChangeFeedOptionsException"/>
+            </remarks>
+            <param name="message">The message detailing the miss match.</param>
+            <param name="itemTypes">The types of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s that are miss matched.</param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Exceptions.MissMatchedChangeFeedOptionsException.#ctor(System.String,System.Collections.Generic.IReadOnlyList{System.Type})">
+            <summary>
+            An exception stating that <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s sharing a container have configured different change feed options.
+            </summary>
+            <remarks>
+            Creates a <see cref="T:Microsoft.Azure.CosmosRepository.Exceptions.MissMatchedChangeFeedOptionsException"/>
+            </remarks>
+            <param name="message">The message detailing the miss match.</param>
+            <param name="itemTypes">The types of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s that are miss matched.</param>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Exceptions.MissMatchedChangeFeedOptionsException.ItemTypes">
+            <summary>
+            The types of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s which are sharing a container.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Exceptions.MissMatchedTypeDiscriminatorException">
+            <summary>
+            This exception is thrown when the type field does not match the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s type.
+            </summary>
+            <remarks>
+            Creates a <see cref="T:Microsoft.Azure.CosmosRepository.Exceptions.MissMatchedTypeDiscriminatorException"/>
+            </remarks>
+            <param name="type">The current type on the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/></param>
+            <param name="expectedType">The expected type of the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/></param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Exceptions.MissMatchedTypeDiscriminatorException.#ctor(System.String,System.String)">
+            <summary>
+            This exception is thrown when the type field does not match the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s type.
+            </summary>
+            <remarks>
+            Creates a <see cref="T:Microsoft.Azure.CosmosRepository.Exceptions.MissMatchedTypeDiscriminatorException"/>
+            </remarks>
+            <param name="type">The current type on the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/></param>
+            <param name="expectedType">The expected type of the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/></param>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Exceptions.MissMatchedTypeDiscriminatorException.Type">
+            <summary>
+            The current type that was present on the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Exceptions.MissMatchedTypeDiscriminatorException.ExpectedType">
+            <summary>
+            The expected type value
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Extensions.ConfigurationExtensions">
+            <summary>
+            Some useful extensions to pull values that will ve populated into <see cref="T:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions"/> from configuration
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Extensions.ConfigurationExtensions.GetCosmosRepositoryConnectionString(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Gets the connection string value from configuration.
+            </summary>
+            <param name="configuration">The <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> instance to read teh config from.</param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Extensions.ConfigurationExtensions.GetCosmosRepositoryDatabaseId(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Gets the database ID value from configuration.
+            </summary>
+            <param name="configuration">The <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> instance to read teh config from.</param>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Extensions.ExpressionExtensions">
+            <summary>
+            Borrowed from:
+            https://docs.microsoft.com/en-us/archive/blogs/meek/linq-to-entities-combining-predicates
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Extensions.ParameterRebinder.VisitParameter(System.Linq.Expressions.ParameterExpression)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Extensions.ServiceCollectionExtensions">
+            <summary>
+            Extension methods for adding and configuring the Azure Cosmos DB services.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Extensions.ServiceCollectionExtensions.AddCosmosRepository(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Microsoft.Azure.CosmosRepository.Options.RepositoryOptions},System.Action{Microsoft.Azure.Cosmos.CosmosClientOptions})">
+            <summary>
+            Adds the services required to consume any number of <see cref="T:Microsoft.Azure.CosmosRepository.Repositories.IRepository`1"/>
+            instances to interact with Cosmos DB.
+            </summary>
+            <param name="services">The service collection to add services to.</param>
+            <param name="setupAction">An action to configure the repository options</param>
+            <param name="additionalSetupAction">An action to configure the <see cref="T:Microsoft.Azure.Cosmos.CosmosClientOptions"/></param>
+            <returns>The same service collection that was provided, with the required cosmos services.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Extensions.ServiceCollectionExtensions.RemoveCosmosRepositories(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Remove all of <see cref="T:Microsoft.Azure.CosmosRepository.Repositories.IRepository`1"/> from the container.
+            </summary>
+            <param name="services">The service collection to add services to.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Extensions.ValueTaskExtensions">
+            <summary>
+            A set of useful extension methods for a <see cref="T:System.Threading.Tasks.ValueTask`1"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Extensions.ValueTaskExtensions.ToListAsync``1(System.Threading.Tasks.ValueTask{System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            Converts a <see cref="T:System.Threading.Tasks.ValueTask"/> of <see cref="T:System.Collections.Generic.IEnumerable`1"/> to a <see cref="T:System.Collections.Generic.List`1"/>
+            </summary>
+            <param name="valueTask">The value task</param>
+            <typeparam name="T">The type of <see cref="T:System.Collections.Generic.IEnumerable`1"/></typeparam>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Extensions.ValueTaskExtensions.FirstOrDefaultAsync``1(System.Threading.Tasks.ValueTask{System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            Returns the first element in the sequence or the default.
+            </summary>
+            <typeparam name="T">The type of entity.</typeparam>
+            <param name="valueTask">The value task</param>
+            <returns>Returns the first item in the enumerable or the default.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Extensions.ValueTaskExtensions.FirstAsync``1(System.Threading.Tasks.ValueTask{System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            Returns the first element in the sequence.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="valueTask">The value task</param>
+            <exception cref="T:System.InvalidOperationException">The source sequence is empty.</exception>
+            <returns>Returns the first element in the sequence.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Extensions.ValueTaskExtensions.LastOrDefaultAsync``1(System.Threading.Tasks.ValueTask{System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            Returns the last element in the sequence.
+            </summary>
+            <typeparam name="T">The entity type.</typeparam>
+            <param name="valueTask">The value task</param>
+            <returns>Returns the last element in the sequence.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Extensions.ValueTaskExtensions.LastAsync``1(System.Threading.Tasks.ValueTask{System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            Returns the last element in the sequence.
+            </summary>
+            <typeparam name="T">The entity type</typeparam>
+            <param name="valueTask">The value task</param>
+            <exception cref="T:System.InvalidOperationException">The source sequence is empty.</exception>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Factories.DefaultRepositoryFactory">
+            <inheritdoc/>
+            <summary>
+            Constructor for the default repository factory.
+            </summary>
+            <param name="serviceProvider"></param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Factories.DefaultRepositoryFactory.#ctor(System.IServiceProvider)">
+            <inheritdoc/>
+            <summary>
+            Constructor for the default repository factory.
+            </summary>
+            <param name="serviceProvider"></param>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Factories.IRepositoryFactory">
+            <summary>
+            A factory abstraction for a component that can
+            create <see cref="T:Microsoft.Azure.CosmosRepository.Repositories.IRepository`1"/> instances.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Factories.IRepositoryFactory.RepositoryOf``1">
+            <summary>
+            Gets an <see cref="T:Microsoft.Azure.CosmosRepository.Repositories.IRepository`1"/> instance for the
+            given <typeparamref name="TItem"/> type.
+            </summary>
+            <typeparam name="TItem">The item type that corresponds to the repository.</typeparam>
+            <returns>An <see cref="T:Microsoft.Azure.CosmosRepository.Repositories.IRepository`1"/> of <typeparamref name="TItem"/>.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.FullItem">
+             <summary>
+             A base helper  public class that implements IItemWithEtag
+             <remarks>
+             This base  public class will implement all supported interfaces giving the complete information available from this SDK.
+             </remarks>
+             </summary>
+             <example>
+             Here is an example sub public class item, which adds several properties:
+             <code language="c#">
+             <![CDATA[
+              public class SubItem : FullItem
+             {
+                 public DateTimeOffset Date { get; set; }
+                 public string Name { get; set; }
+                 public IEnumerable<Child> Children { get; set; }
+                 public IEnumerable<string> Tags { get; set; }
+             }
+            
+              public class Child
+             {
+                 public string Name { get; set; }
+                 public DateTime BirthDate { get; set; }
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.FullItem.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.FullItem.#ctor(System.String)">
+            <summary>
+            A constructor that allows the etag to be set so that items can be mapped to and from other objects
+            </summary>
+            <param name="etag"></param>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.FullItem.Etag">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.FullItem.TimeToLive">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.FullItem.LastUpdatedTimeUtc">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.FullItem.LastUpdatedTimeRaw">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.FullItem.CreatedTimeUtc">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.IItem">
+            <summary>
+            The base interface used for all repository object or object graphs.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.IItem.Id">
+            <summary>
+            Gets or sets the item's globally unique identifier.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.IItem.Type">
+            <summary>
+            Gets or sets the item's type name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.IItem.PartitionKey">
+            <summary>
+            Gets the item's PartitionKey. This string is used to instantiate the <c>Cosmos.PartitionKey</c> struct.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.IItemWithEtag">
+            <summary>
+            The base interface used for all repository object or object graphs.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.IItemWithEtag.Etag">
+            <summary>
+            Etag for the item which was set by Cosmos the last time the item was updated. This string is used for the relevant operations when specified.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.IItemWithTimeStamps">
+            <summary>
+            An implementation of IItem with the additional property "CreatedTime".
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.IItemWithTimeStamps.CreatedTimeUtc">
+            <summary>
+            Time stamp of when the item was created.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.IItemWithTimeStamps.LastUpdatedTimeUtc">
+            <summary>
+            Time stamp of the last update.
+            <remarks>
+            This value will not be updated on the object passed into create / update methods.
+            </remarks>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.IItemWithTimeStamps.LastUpdatedTimeRaw">
+            <summary>
+            Epoch time the last update or when the item was created in Cosmos.
+            <remarks>
+            Stored as stored in Cosmos DB.
+            </remarks>
+            <remarks>
+            This value will not be updated on the object passed into create / update methods.
+            </remarks>
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.IItemWithTimeToLive">
+            <summary>
+            An implementation of IItem with the additional property "TimeToLive".
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.IItemWithTimeToLive.TimeToLive">
+            <summary>
+            The time an item should exist within the container.
+            <remarks>
+            When setting this to a positive integer this requires the default TTL at container level to be set to a non-null value.
+            </remarks>
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.IQueryResult`1">
+            <summary>
+            Represent a full set of data from a cosmos query
+            </summary>
+            <typeparam name="TItem"></typeparam>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.IQueryResult`1.Items">
+            <summary>
+            The items that are in the current page.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.IQueryResult`1.Charge">
+            <summary>
+            The amount of RU's the given query cost.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Item">
+             <summary>
+             A base helper  public class that implements IItem
+             </summary>
+             <example>
+             Here is an example sub public class item, which adds several properties:
+             <code language="c#">
+             <![CDATA[
+              public class SubItem : Item
+             {
+                 public DateTimeOffset Date { get; set; }
+                 public string Name { get; set; }
+                 public IEnumerable<Child> Children { get; set; }
+                 public IEnumerable<string> Tags { get; set; }
+             }
+            
+              public class Child
+             {
+                 public string Name { get; set; }
+                 public DateTime BirthDate { get; set; }
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Item.Id">
+            <summary>
+            Gets or sets the item's globally unique identifier.
+            </summary>
+            <remarks>
+            Initialized by <see cref="M:System.Guid.NewGuid"/>.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Item.Type">
+            <summary>
+            Gets or sets the item's type name. This is used as a discriminator.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Item.Microsoft#Azure#CosmosRepository#IItem#PartitionKey">
+            <summary>
+            Gets the PartitionKey based on <see cref="M:Microsoft.Azure.CosmosRepository.Item.GetPartitionKeyValue"/>.
+            Implemented explicitly to keep out of Item API
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Item.#ctor">
+            <summary>
+            Default constructor, assigns type name to <see cref="P:Microsoft.Azure.CosmosRepository.Item.Type"/> property.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Item.GetPartitionKeyValue">
+            <summary>
+            Gets the partition key value for the given <see cref="T:Microsoft.Azure.CosmosRepository.Item"/> type.
+            When overridden, be sure that the <see cref="P:Microsoft.Azure.CosmosRepository.Attributes.PartitionKeyPathAttribute.Path"/> value corresponds
+            to the <see cref="P:Newtonsoft.Json.JsonPropertyAttribute.PropertyName"/> value, i.e.; "/partition" and "partition"
+            respectively. If these two values do not correspond an error will occur.
+            </summary>
+            <returns>The <see cref="P:Microsoft.Azure.CosmosRepository.Item.Id"/> unless overridden by the sub public class.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions">
+            <summary>
+            A repository options  public class, representing
+            various Azure Cosmos DB configuration settings.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.CosmosConnectionStringConfigKey">
+            <summary>
+            The configuration key used for the connection string.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.DatabaseIdConfigKey">
+            <summary>
+            The configuration key used for the database ID.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.CosmosConnectionString">
+            <summary>
+            Gets or sets the cosmos connection string. Primary or secondary connection strings are valid.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.AccountEndpoint">
+            <summary>
+            Gets or sets the cosmos account endpoint URI. This can be retrieved from the Overview section of the Azure Portal.
+            This is required if you are authenticating using tokens.
+            <remarks>
+            In the form of https://{databaseaccount}.documents.azure.com:443/, see: https://docs.microsoft.com/en-us/rest/api/cosmos-db/cosmosdb-resource-uri-syntax-for-rest
+            </remarks>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.DatabaseId">
+            <summary>
+            Gets or sets the name identifier for the cosmos database.
+            </summary>
+            <remarks>
+            Defaults to "database", unless otherwise specified.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.ContainerId">
+            <summary>
+            Gets or sets the name identifier for the cosmos container that corresponds to the <see cref="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.DatabaseId"/>.
+            </summary>
+            <remarks>
+            Defaults to "container", unless otherwise specified.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.OptimizeBandwidth">
+            <summary>
+            Gets or sets whether to optimize bandwidth.
+            When false, the <see cref="P:Microsoft.Azure.Cosmos.ItemRequestOptions.EnableContentResponseOnWrite"/> is set to false and only
+            headers and status code in the Cosmos DB response for write item operation like Create, Upsert,
+            Patch and Replace. This reduces networking and CPU load by not sending the resource back over the
+            network and serializing it on the client.
+            </summary>
+            <remarks>
+            Defaults to true, see: https://devblogs.microsoft.com/cosmosdb/enable-content-response-on-write
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.ContainerPerItemType">
+             <summary>
+             Gets or sets whether to create a container per item. When true, a container for type `Foo` will be persisted in
+             a "Foo" container, and type `Bar` will be persisted in a "Bar" container, and so on. When false, all items share
+             a container - because it doesn't really matter.
+             </summary>
+             <remarks>
+            Defaults to false, see: https://docs.microsoft.com/azure/cosmos-db/how-to-model-partition-example?WC.m_id=dapine
+             </remarks>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.AllowBulkExecution">
+            <summary>
+            Gets or sets whether optimistic batching of service requests occurs. Setting this option might
+            impact the latency of the operations. Hence this option is recommended for non-latency
+            sensitive scenarios only.
+            </summary>
+            <remarks>
+            Defaults to false, see: https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.SyncAllContainerProperties">
+            <summary>
+            Get or sets whether or not to sync all container properties. Setting this option will mean all containers when created for the first time will ensure that
+            the container properties are up to date.
+            <remarks>If you want to specify this at the container level see <see cref="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.ContainerBuilder"/></remarks>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.SerializationOptions">
+            <summary>
+            Gets or sets the repository serialization options.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.TokenCredential">
+            <summary>
+            The <see cref="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.TokenCredential"/> which can be used to access azure resources, including Cosmos DB.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.ContainerBuilder">
+            <summary>
+            A builder to configure containers.
+            Ensure that ContainerPerItemType is set to true for the container name configured here to take affect.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.IsAutoResourceCreationIfNotExistsEnabled">
+            <summary>
+            Used to tell the SDK whether or not to try and creates databases and containers if they do not exist.
+            </summary>
+            <remarks>This feature is very powerful for local development. However, in scenarios where infrastructure as code is used this may not be required.</remarks>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.ContainerOptions">
+            <summary>
+            Container options provided by the <see cref="T:Microsoft.Azure.CosmosRepository.Builders.IItemContainerBuilder"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.GetContainerOptions``1">
+            <summary>
+            Get the <see cref="T:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder"/> for a given <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>.
+            </summary>
+            <typeparam name="TItem"></typeparam>
+            <returns>null or <see cref="T:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.GetContainerSharedContainerOptions``1">
+            <summary>
+            Gets container options for <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>s that share the same container.
+            </summary>
+            <typeparam name="TItem">The type of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> to find common types for.</typeparam>
+            <returns>A collection of <see cref="T:Microsoft.Azure.CosmosRepository.Builders.ContainerOptionsBuilder"/>s that share the same container.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Options.RepositorySerializationOptions">
+            <summary>
+            The serialization options for the Cosmos DB repository.
+            These are mapped to the <see cref="P:Microsoft.Azure.Cosmos.CosmosClientOptions.SerializerOptions"/> object.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositorySerializationOptions.IgnoreNullValues">
+            <summary>
+            Gets or sets if the serializer should ignore null properties.
+            </summary>
+            <remarks>The default value is false</remarks>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositorySerializationOptions.Indented">
+            <summary>
+            Gets or sets if the serializer should use indentation.
+            </summary>
+            <remarks>The default value is false</remarks>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Options.RepositorySerializationOptions.PropertyNamingPolicy">
+            <summary>
+            Gets or sets whether the naming policy used to convert a string-based name to
+            another format, such as a camel-casing format.
+            </summary>
+            <remarks>The default value is <see cref="F:Microsoft.Azure.Cosmos.CosmosPropertyNamingPolicy.CamelCase"/>.</remarks>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Options.RepositorySerializationOptions.op_Implicit(Microsoft.Azure.CosmosRepository.Options.RepositorySerializationOptions)~Microsoft.Azure.Cosmos.CosmosSerializationOptions">
+            <summary>
+            Defines an implicit operator for which allows the <see cref="T:Microsoft.Azure.CosmosRepository.Options.RepositorySerializationOptions"/> to be converted
+            to a <see cref="T:Microsoft.Azure.Cosmos.CosmosSerializationOptions"/>.
+            </summary>
+            <param name="options">The source options to map from.</param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Options.RepositorySerializationOptions.op_Implicit(Microsoft.Azure.CosmosRepository.Options.RepositorySerializationOptions)~Microsoft.Azure.Cosmos.CosmosLinqSerializerOptions">
+            <summary>
+            Defines an implicit operator for which allows the <see cref="T:Microsoft.Azure.CosmosRepository.Options.RepositorySerializationOptions"/> to be converted
+            to a <see cref="T:Microsoft.Azure.Cosmos.CosmosLinqSerializerOptions"/>.
+            </summary>
+            <param name="options">The source options to map from.</param>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Paging.IPage`1">
+            <summary>
+            Represents a page of data from a cosmos query
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.IPage`1.Total">
+            <summary>
+            The total amount items that matched the query.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.IPage`1.Size">
+            <summary>
+            The size of the current page.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.IPage`1.Continuation">
+            <summary>
+            The continuation token used to load results from a stateless marker.
+            </summary>
+            <remarks>This is provided by cosmos DB.</remarks>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Paging.IPageQueryResult`1">
+            <summary>
+            Represents a page of data from a cosmos query
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.IPageQueryResult`1.TotalPages">
+            <summary>
+            The total amount pages that matched the query.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.IPageQueryResult`1.PageNumber">
+            <summary>
+            The total amount items that matched the query.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.IPageQueryResult`1.HasNextPage">
+            <summary>
+            Gets a value indicating whether the are next pages.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.IPageQueryResult`1.HasPreviousPage">
+            <summary>
+            Gets a value indicating whether the are previous pages.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.IPageQueryResult`1.PreviousPageNumber">
+            <summary>
+            The previous page number.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.IPageQueryResult`1.NextPageNumber">
+            <summary>
+            The next page number.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Paging.Page`1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Paging.Page`1.#ctor(System.Nullable{System.Int32},System.Int32,System.Collections.Generic.IReadOnlyList{`0},System.Double,System.String)">
+            <summary>
+            Creates a page.
+            </summary>
+            <param name="total"></param>
+            <param name="size"></param>
+            <param name="items"></param>
+            <param name="charge"></param>
+            <param name="continuation"></param>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.Page`1.Total">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.Page`1.Size">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.Page`1.Items">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.Page`1.Charge">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.Page`1.Continuation">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Paging.PageQueryResult`1.#ctor(System.Nullable{System.Int32},System.Int32,System.Collections.Generic.IReadOnlyList{`0},System.Double,System.String)">
+            <summary>
+            Creates a page.
+            </summary>
+            <param name="total">The total.</param>
+            <param name="size">The size.</param>
+            <param name="items">The items.</param>
+            <param name="charge">The charge.</param>
+            <param name="continuation">The continuation.</param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Paging.PageQueryResult`1.#ctor(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Int32,System.Collections.Generic.IReadOnlyList{`0},System.Double,System.String)">
+            <summary>
+            Creates a page.
+            </summary>
+            <param name="total">The total.</param>
+            <param name="pageNumber">The page number.</param>
+            <param name="size">The size.</param>
+            <param name="items">The items.</param>
+            <param name="charge">The charge.</param>
+            <param name="continuation">The continuation.</param>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.PageQueryResult`1.TotalPages">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.PageQueryResult`1.PageNumber">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.PageQueryResult`1.HasPreviousPage">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.PageQueryResult`1.HasNextPage">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.PageQueryResult`1.PreviousPageNumber">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Paging.PageQueryResult`1.NextPageNumber">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.DefaultContainerSyncContainerPropertiesProvider">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultContainerSyncContainerPropertiesProvider.#ctor(Microsoft.Extensions.Options.IOptions{Microsoft.Azure.CosmosRepository.Options.RepositoryOptions})">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultContainerSyncContainerPropertiesProvider.GetWhetherToSyncContainerProperties``1">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosClientOptionsProvider">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosClientOptionsProvider.ClientOptions">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosClientOptionsProvider.#ctor(System.IServiceProvider,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Default <see cref="T:Microsoft.Azure.CosmosRepository.Providers.ICosmosClientOptionsProvider"/> implementation.
+            </summary>
+            <param name="serviceProvider">Service provider implementation.</param>
+            <param name="configuration">Service configuration implementation.</param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosClientProvider.#ctor(Microsoft.Azure.CosmosRepository.Providers.ICosmosClientOptionsProvider,Microsoft.Extensions.Options.IOptions{Microsoft.Azure.CosmosRepository.Options.RepositoryOptions})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosClientProvider.UseClientAsync``1(System.Func{Microsoft.Azure.Cosmos.CosmosClient,System.Threading.Tasks.Task{``0}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosClientProvider.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosContainerDefaultTimeToLiveProvider">
+            <inheritdoc/>
+            <summary>
+            Creates an instance of the <see cref="T:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosContainerDefaultTimeToLiveProvider"/>.
+            </summary>
+            <param name="options">The repository options.</param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosContainerDefaultTimeToLiveProvider.#ctor(Microsoft.Extensions.Options.IOptions{Microsoft.Azure.CosmosRepository.Options.RepositoryOptions})">
+            <inheritdoc/>
+            <summary>
+            Creates an instance of the <see cref="T:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosContainerDefaultTimeToLiveProvider"/>.
+            </summary>
+            <param name="options">The repository options.</param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosContainerDefaultTimeToLiveProvider.GetDefaultTimeToLive``1">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosContainerNameProvider">
+            <inheritdoc cref="T:Microsoft.Azure.CosmosRepository.Providers.ICosmosContainerNameProvider" />
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosContainerNameProvider.#ctor(Microsoft.Extensions.Options.IOptions{Microsoft.Azure.CosmosRepository.Options.RepositoryOptions})">
+            <inheritdoc cref="T:Microsoft.Azure.CosmosRepository.Providers.ICosmosContainerNameProvider" />
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosContainerNameProvider.GetContainerName``1">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosContainerProvider`1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosContainerProvider`1.#ctor(Microsoft.Azure.CosmosRepository.Services.ICosmosContainerService)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosContainerProvider`1.GetContainerAsync">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosPartitionKeyPathProvider">
+            <inheritdoc cref="T:Microsoft.Azure.CosmosRepository.Providers.ICosmosPartitionKeyPathProvider" />
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosPartitionKeyPathProvider.#ctor(Microsoft.Extensions.Options.IOptions{Microsoft.Azure.CosmosRepository.Options.RepositoryOptions})">
+            <inheritdoc cref="T:Microsoft.Azure.CosmosRepository.Providers.ICosmosPartitionKeyPathProvider" />
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosPartitionKeyPathProvider.GetPartitionKeyPath``1">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosThroughputProvider">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosThroughputProvider.#ctor(Microsoft.Extensions.Options.IOptions{Microsoft.Azure.CosmosRepository.Options.RepositoryOptions})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosThroughputProvider.GetThroughputProperties``1">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosUniqueKeyPolicyProvider">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.DefaultCosmosUniqueKeyPolicyProvider.GetUniqueKeyPolicy``1">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.ICosmosClientOptionsProvider">
+            <summary>
+            The cosmos client options provider exposes a means of providing
+            an instance to the configured <see cref="T:Microsoft.Azure.Cosmos.CosmosClientOptions"/> object,
+            which is shared.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Providers.ICosmosClientOptionsProvider.ClientOptions">
+            <summary>
+            Gets the configured <see cref="T:Microsoft.Azure.Cosmos.CosmosClientOptions"/> instance.
+            </summary>
+            <returns>A <see cref="T:Microsoft.Azure.Cosmos.CosmosClientOptions"/> instance.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.ICosmosClientProvider">
+            <summary>
+            The cosmos client provider exposes a means of providing
+            an instance to the configured <see cref="P:Microsoft.Azure.CosmosRepository.Providers.ICosmosClientProvider.CosmosClient"/> object,
+            which is shared.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.ICosmosContainerDefaultTimeToLiveProvider">
+            <summary>
+            The cosmos container default time to live provider to an <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.ICosmosContainerDefaultTimeToLiveProvider.GetDefaultTimeToLive``1">
+            <summary>
+            Gets teh default time to live value for an <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>
+            </summary>
+            <typeparam name="TItem">The <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/></typeparam>
+            <remarks>If no options are found for this item then it's default in the container will be set to -1 (live forever).</remarks>
+            <returns>The time to live in seconds.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.ICosmosContainerNameProvider">
+            <summary>
+            The cosmos container name provider maps container names to
+            <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> implementations.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.ICosmosContainerNameProvider.GetContainerName``1">
+            <summary>
+            Gets the container name for the corresponding <typeparamref name="TItem"/>.
+            When decorating <typeparamref name="TItem"/> implementations with the
+            <see cref="T:Microsoft.Azure.CosmosRepository.Attributes.ContainerAttribute"/>, and configuring <see cref="P:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions.ContainerPerItemType"/>
+            to <c>true</c>, the container name is used instead of the type name.
+            </summary>
+            <returns>The container name.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.ICosmosContainerProvider`1">
+            <summary>
+            The cosmos container provider exposes a means of providing
+            an instance to the configured <see cref="T:Microsoft.Azure.Cosmos.Container"/> object.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.ICosmosContainerProvider`1.GetContainerAsync">
+            <summary>
+            Asynchronously gets the configured <see cref="T:Microsoft.Azure.Cosmos.Container"/> instance that corresponds to the
+            cosmos <see cref="T:Microsoft.Azure.CosmosRepository.Options.RepositoryOptions"/>.
+            </summary>
+            <returns>A <see cref="T:Microsoft.Azure.Cosmos.Container"/> instance.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.ICosmosContainerSyncContainerPropertiesProvider">
+            <summary>
+            Decides whether or not a given container should sync it's properties.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.ICosmosContainerSyncContainerPropertiesProvider.GetWhetherToSyncContainerProperties``1">
+            <summary>
+            Gets whether the container should sync container properties.
+            </summary>
+            <typeparam name="TItem">The type of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/></typeparam>
+            <remarks>If the SyncAllContainerProperties is set to true this will override any specific containers configuration.</remarks>
+            <returns>Whether or not to sync container properties</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.ICosmosItemConfigurationProvider">
+            <summary>
+            Holds all of the configuration information for an item.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.ICosmosPartitionKeyPathProvider">
+            <summary>
+            The cosmos partition key path provider exposes the ability
+            to get an <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s partition key path.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.ICosmosPartitionKeyPathProvider.GetPartitionKeyPath``1">
+            <summary>
+            Gets the partition key path for a given <typeparamref name="TItem"/> type.
+            </summary>
+            <typeparam name="TItem">The item for which the partition key path corresponds.</typeparam>
+            <returns>A string value representing the partition key path, i.e.; "/partion"</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.ICosmosThroughputProvider">
+            <summary>
+            Exposes the ability to get an <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>s containers throughput properties.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.ICosmosThroughputProvider.GetThroughputProperties``1">
+            <summary>
+            Gets the throughput properties for the given <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>s container.
+            </summary>
+            <typeparam name="TItem">The type of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/></typeparam>
+            <returns><see cref="T:Microsoft.Azure.Cosmos.ThroughputProperties"/> for the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>s container.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Providers.ICosmosUniqueKeyPolicyProvider">
+            <summary>
+            The cosmos partition key path provider exposes the ability
+            to get an <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s partition key path.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Providers.ICosmosUniqueKeyPolicyProvider.GetUniqueKeyPolicy``1">
+            <summary>
+            Gets the unique key policy for a given <typeparamref name="TItem"/> type.
+            </summary>
+            <typeparam name="TItem">The item for which the unique key policy corresponds.</typeparam>
+            <returns>A <see cref="T:Microsoft.Azure.Cosmos.UniqueKeyPolicy"/> for the corresponding to the given <typeparamref name="TItem"/>.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.QueryResult`1">
+             <summary>
+            
+             </summary>
+             <typeparam name="T"></typeparam>
+             <remarks>
+            
+             </remarks>
+             <param name="items"></param>
+             <param name="charge"></param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.QueryResult`1.#ctor(System.Collections.Generic.IReadOnlyList{`0},System.Double)">
+             <summary>
+            
+             </summary>
+             <typeparam name="T"></typeparam>
+             <remarks>
+            
+             </remarks>
+             <param name="items"></param>
+             <param name="charge"></param>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.QueryResult`1.Items">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.QueryResult`1.Charge">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.UpdateAsBatchAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.CreateAsBatchAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.CountAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.CountAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.CreateAsync(`0,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.CreateAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.#ctor(Microsoft.Extensions.Options.IOptionsMonitor{Microsoft.Azure.CosmosRepository.Options.RepositoryOptions},Microsoft.Azure.CosmosRepository.Providers.ICosmosContainerProvider{`0},Microsoft.Extensions.Logging.ILogger{Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository{`0}},Microsoft.Azure.CosmosRepository.Processors.ICosmosQueryableProcessor,Microsoft.Azure.CosmosRepository.Providers.IRepositoryExpressionProvider,Microsoft.Azure.CosmosRepository.Specification.Evaluator.ISpecificationEvaluator)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.DeleteAsync(`0,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.DeleteAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.DeleteAsync(System.String,Microsoft.Azure.Cosmos.PartitionKey,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.ExistsAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.ExistsAsync(System.String,Microsoft.Azure.Cosmos.PartitionKey,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.ExistsAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.PageAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Int32,System.String,System.Boolean,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.PageAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Int32,System.Int32,System.Boolean,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.TryGetAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.GetAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.GetAsync(System.String,Microsoft.Azure.Cosmos.PartitionKey,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.GetAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.GetByQueryAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.GetByQueryAsync(Microsoft.Azure.Cosmos.QueryDefinition,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.QueryAsync``1(Microsoft.Azure.CosmosRepository.Specification.ISpecification{`0,``0},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.UpdateAsync(`0,System.Boolean,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.DefaultRepository`1.UpdateAsync(System.Collections.Generic.IEnumerable{`0},System.Boolean,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Repositories.IBatchRepository`1">
+             <summary>
+             This is the batch enabled repository interface for any implementation of
+             <typeparamref name="TItem"/>, exposing asynchronous batch update and create functionality.
+             </summary>
+             <typeparam name="TItem">The <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> implementation  public class type.</typeparam>
+             <example>
+             With DI, use .ctor injection to require any implementation of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>:
+             <code language="c#">
+             <![CDATA[
+              public class ConsumingService
+             {
+                 readonly IBatchRepository<SomePoco> _pocoRepository;
+            
+                 public ConsumingService(
+                     IBatchRepository<SomePoco> pocoRepository) =>
+                     _pocoRepository = pocoRepository;
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IBatchRepository`1.UpdateAsBatchAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <summary>
+            Updates an <see cref="T:System.Collections.Generic.IEnumerable`1"/> as a batch.
+            </summary>
+            <param name="items">The items to update.</param>
+            <param name="cancellationToken">A token to cancel the async operation.</param>
+            <exception cref="T:Microsoft.Azure.CosmosRepository.Exceptions.BatchOperationException`1">Thrown when the batch operation fails</exception>
+            <returns>An <see cref="T:System.Threading.Tasks.ValueTask"/> that represents the async batch operation.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IBatchRepository`1.CreateAsBatchAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <summary>
+            Creates an <see cref="T:System.Collections.Generic.IEnumerable`1"/> as a batch.
+            </summary>
+            <param name="items">The items to create.</param>
+            <param name="cancellationToken">A token to cancel the async operation.</param>
+            <exception cref="T:Microsoft.Azure.CosmosRepository.Exceptions.BatchOperationException`1">Thrown when the batch operation fails</exception>
+            <returns>An <see cref="T:System.Threading.Tasks.ValueTask"/> that represents the async batch operation.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IBatchRepository`1.DeleteAsBatchAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <summary>
+            Deletes an <see cref="T:System.Collections.Generic.IEnumerable`1"/> as a batch.
+            </summary>
+            <param name="items">The items to create.</param>
+            <param name="cancellationToken">A token to cancel the async operation.</param>
+            <exception cref="T:Microsoft.Azure.CosmosRepository.Exceptions.BatchOperationException`1">Thrown when the batch operation fails</exception>
+            <returns>An <see cref="T:System.Threading.Tasks.ValueTask"/> that represents the async batch operation.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1">
+             <summary>
+             This is the read-only repository interface for any implementation of
+             <typeparamref name="TItem"/>, exposing asynchronous read functionality.
+             </summary>
+             <typeparam name="TItem">The <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> implementation  public class type.</typeparam>
+             <example>
+             With DI, use .ctor injection to require any implementation of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>:
+             <code language="c#">
+             <![CDATA[
+              public class ConsumingService
+             {
+                 readonly IReadOnlyRepository<SomePoco> _pocoRepository;
+            
+                 public ConsumingService(
+                     IReadOnlyRepository<SomePoco> pocoRepository) =>
+                     _pocoRepository = pocoRepository;
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1.TryGetAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to get an <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> that corresponds to the given <paramref name="id"/>.
+            </summary>
+            <param name="id">The string identifier.</param>
+            <param name="partitionKeyValue">The partition key value if different than the <see cref="P:Microsoft.Azure.CosmosRepository.IItem.Id"/>.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <remarks>This implementation handles the case in which a <see cref="T:Microsoft.Azure.Cosmos.CosmosException"/> with the status code of 404.
+            It will return null when this exception is thrown.</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1.GetAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> implementation  public class instance as a <typeparamref name="TItem"/> that corresponds to the given <paramref name="id"/>.
+            </summary>
+            <remarks>
+            If the typeof(<typeparamref name="TItem"/>).Name differs from the item.Type you're attempting to retrieve, null is returned.
+            </remarks>
+            <param name="id">The string identifier.</param>
+            <param name="partitionKeyValue">The partition key value if different than the <see cref="P:Microsoft.Azure.CosmosRepository.IItem.Id"/>.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.ValueTask`1"/> representing the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> implementation  public class instance as a <typeparamref name="TItem"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1.GetAsync(System.String,Microsoft.Azure.Cosmos.PartitionKey,System.Threading.CancellationToken)">
+            <summary>
+            Gets the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> implementation  public class instance as a <typeparamref name="TItem"/> that corresponds to the given <paramref name="id"/>.
+            </summary>
+            <remarks>
+            If the typeof(<typeparamref name="TItem"/>).Name differs from the item.Type you're attempting to retrieve, null is returned.
+            </remarks>
+            <param name="id">The string identifier.</param>
+            <param name="partitionKey">The <see cref="T:Microsoft.Azure.Cosmos.PartitionKey"/> value if different than the <see cref="P:Microsoft.Azure.CosmosRepository.IItem.Id"/>.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.ValueTask`1"/> representing the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> implementation  public class instance as a <typeparamref name="TItem"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1.GetAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.IEnumerable`1"/> collection of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>
+            implementation  public classes that match the given <paramref name="predicate"/>.
+            </summary>
+            <remarks>
+            If the typeof(<typeparamref name="TItem"/>).Name differs from the item.Type you're attempting to retrieve, the item is not returned.
+            </remarks>
+            <param name="predicate">The expression used for evaluating a matching item.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A collection of item instances who meet the <paramref name="predicate"/> condition.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1.GetByQueryAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.IEnumerable`1"/> collection of <see cref="T:Microsoft.Azure.CosmosRepository.IItem" />
+            by the given Cosmos SQL query
+            </summary>
+            <param name="query">The Cosmos SQL query</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A collection of item instances returned by the given <paramref name="query"/> Cosmos SQL query.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1.GetByQueryAsync(Microsoft.Azure.Cosmos.QueryDefinition,System.Threading.CancellationToken)">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.IEnumerable`1"/> collection of <see cref="T:Microsoft.Azure.CosmosRepository.IItem" />
+            by the given Cosmos QueryDefinition
+            </summary>
+            <param name="queryDefinition"></param>
+            <param name="cancellationToken"></param>
+            <returns>A collection of item instances returned by the given <paramref name="queryDefinition"/> Cosmos SQL query.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1.ExistsAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Queries cosmos DB to see if an item exists.
+            </summary>
+            <remarks>This method performs a point read to decide whether or not an item exists.</remarks>
+            <param name="id">The string identifier.</param>
+            <param name="partitionKeyValue">The partition key value if different than the <see cref="P:Microsoft.Azure.CosmosRepository.IItem.Id"/>.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.ValueTask"/> representing the asynchronous exists operation.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1.ExistsAsync(System.String,Microsoft.Azure.Cosmos.PartitionKey,System.Threading.CancellationToken)">
+            <summary>
+            Queries cosmos DB to see if an item exists.
+            </summary>
+            <remarks>This method performs a point read to decide whether or not an item exists.</remarks>
+            <param name="id">The string identifier.</param>
+            <param name="partitionKey">The <see cref="T:Microsoft.Azure.Cosmos.PartitionKey"/> value if different than the <see cref="P:Microsoft.Azure.CosmosRepository.IItem.Id"/>.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.ValueTask"/> representing the asynchronous exists operation.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1.ExistsAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <summary>
+            Queries cosmos DB to see if an item exists.
+            </summary>
+            <remarks>This checks the count of the resulting query any count greater than 1 will return true.</remarks>
+            <param name="predicate">The expression used for evaluating any matching items.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.ValueTask"/> representing the asynchronous exists operation.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1.CountAsync(System.Threading.CancellationToken)">
+            <summary>
+            Queries cosmos DB to obtain the count of items.
+            </summary>
+            <remarks>
+            This queries the total number of documents in the container.
+            </remarks>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.ValueTask"/> representing the asynchronous count operation.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1.CountAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <summary>
+            Queries cosmos DB to obtain the count of items.
+            </summary>
+            <remarks>
+            This queries the total number of documents in the container as filtered by the provided predicate.
+            </remarks>
+            <param name="predicate">The expression used for evaluating any matching items.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.ValueTask"/> representing the asynchronous count operation.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1.PageAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Int32,System.String,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Offers a load more paging implementation for infinite scroll scenarios.
+            Allows for efficient paging making use of cosmos DBs continuation tokens, making this implementation cost effective.
+            </summary>
+            <param name="predicate">A filter criteria for the paging operation, if null it will get all <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>s</param>
+            <param name="pageSize">The size of the page to return from cosmos db.</param>
+            <param name="continuationToken">The token returned from a previous query, if null starts at the beginning of the data</param>
+            <param name="returnTotal">Specifies whether or not to return the total number of items that matched the query. This defaults to false as it can be a very expensive operation.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>An <see cref="T:Microsoft.Azure.CosmosRepository.Paging.IPage`1"/> of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>s</returns>
+            <remarks>This method makes use of cosmos dbs continuation tokens for efficient, cost effective paging utilising low RUs</remarks>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1.QueryAsync``1(Microsoft.Azure.CosmosRepository.Specification.ISpecification{`0,``0},System.Threading.CancellationToken)">
+            <summary>
+            Get items based on a specification.
+            The specification is used to define which filters are used, the order of the search results and how they are paged.
+            Depending on how results are paged derive specification implementations from different  public classes:
+            For non paged results derive <see cref="T:Microsoft.Azure.CosmosRepository.Specification.DefaultSpecification`1"/>
+            For continuation token derive <see cref="T:Microsoft.Azure.CosmosRepository.Specification.ContinuationTokenSpecification`1"/>
+            For page number results derive <see cref="T:Microsoft.Azure.CosmosRepository.Specification.OffsetByPageNumberSpecification`1"/>
+            </summary>
+            <typeparam name="TResult">Decides which paging information is retrieved. Use <see cref="T:Microsoft.Azure.CosmosRepository.Specification.ContinuationTokenSpecification`1"/></typeparam>
+            <param name="specification">A specification used to filtering, ordering and paging. A <see cref="T:Microsoft.Azure.CosmosRepository.Specification.ISpecification`2"/></param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>The selected <typeparamref name="TResult"/> implementation that implements <see cref="T:Microsoft.Azure.CosmosRepository.IQueryResult`1"/> of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/></returns>
+            <remarks>This method makes use of cosmos dbs continuation tokens for efficient, cost effective paging utilising low RUs</remarks>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1.PageAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Int32,System.Int32,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Offers a load more paging implementation for infinite scroll scenarios.
+            Allows for efficient paging making use of cosmos DBs continuation tokens, making this implementation cost effective.
+            </summary>
+            <param name="predicate">A filter criteria for the paging operation, if null it will get all <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>s</param>
+            <param name="pageNumber">The page number to return from cosmos db.</param>
+            <param name="pageSize">The size of the page to return from cosmos db.</param>
+            <param name="returnTotal">Specifies whether or not to return the total number of items that matched the query. This defaults to false as it can be a very expensive operation.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>An <see cref="T:Microsoft.Azure.CosmosRepository.Paging.IPageQueryResult`1"/> of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>s</returns>
+            <remarks>This method makes use of Cosmos DB's continuation tokens for efficient, cost effective paging utilizing low RUs</remarks>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1.PageAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Wraps the existing paging support to return an <see cref="T:System.Collections.Generic.IAsyncEnumerable`1"/>
+            where <c>T</c> is <typeparamref name="TItem"/>.
+            </summary>
+            <param name="predicate">A filter criteria for the paging operation, if null it will get all <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>s</param>
+            <param name="limit">The limit of how many items to yield. Defaults to <c>1,000</c>.</param>
+            <param name="cancellationToken">The optional <see cref="T:System.Threading.CancellationToken"/> used to </param>
+            <returns>An <see cref="T:System.Collections.Generic.IAsyncEnumerable`1"/> where <c>T</c> is <typeparamref name="TItem"/>.</returns>
+            <remarks>This method makes use of Cosmos DB's continuation tokens for efficient, cost effective paging utilizing low RUs</remarks>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Repositories.IRepository`1">
+             <summary>
+             This is the repository interface for any implementation of
+             <typeparamref name="TItem"/>, exposing asynchronous C.R.U.D. functionality.
+             It exposes both <see cref="T:Microsoft.Azure.CosmosRepository.Repositories.IReadOnlyRepository`1"/> and
+             <see cref="T:Microsoft.Azure.CosmosRepository.Repositories.IWriteOnlyRepository`1"/>, providing a fully functioning repository.
+             </summary>
+             <typeparam name="TItem">The <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> implementation  public class type.</typeparam>
+             <example>
+             With DI, use .ctor injection to require any implementation of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>:
+             <code language="c#">
+             <![CDATA[
+              public class ConsumingService
+             {
+                 readonly IRepository<SomePoco> _pocoRepository;
+            
+                 public ConsumingService(
+                     IRepository<SomePoco> pocoRepository) =>
+                     _pocoRepository = pocoRepository;
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Repositories.IWriteOnlyRepository`1">
+             <summary>
+             This is the write-only repository interface for any implementation of
+             <typeparamref name="TItem"/>, exposing asynchronous create, update, and delete functionality.
+             </summary>
+             <typeparam name="TItem">The <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> implementation  public class type.</typeparam>
+             <example>
+             With DI, use .ctor injection to require any implementation of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>:
+             <code language="c#">
+             <![CDATA[
+              public class ConsumingService
+             {
+                 readonly IWriteOnlyRepository<SomePoco> _pocoRepository;
+            
+                 public ConsumingService(
+                     IWriteOnlyRepository<SomePoco> pocoRepository) =>
+                     _pocoRepository = pocoRepository;
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IWriteOnlyRepository`1.CreateAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Creates a cosmos item representing the given <paramref name="value"/>.
+            </summary>
+            <param name="value">The item value to create.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.ValueTask`1"/> representing the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> implementation  public class instance as a <typeparamref name="TItem"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IWriteOnlyRepository`1.CreateAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <summary>
+            Creates one or more cosmos item(s) representing the given <paramref name="values"/>.
+            </summary>
+            <param name="values">The item values to create.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A collection of created item instances.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IWriteOnlyRepository`1.UpdateAsync(`0,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Updates the cosmos object that corresponds to the given <paramref name="value"/>.
+            </summary>
+            <param name="value">The item value to update.</param>
+            <param name="ignoreEtag">When TItem implements IItemWithEtag the etag will be verified on all updates. Setting this flag to true indicates that the etag should be ignored.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.ValueTask`1"/> representing the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> implementation  public class instance as a <typeparamref name="TItem"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IWriteOnlyRepository`1.UpdateAsync(System.Collections.Generic.IEnumerable{`0},System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Updates one or more cosmos item(s) representing the given <paramref name="values"/>.
+            </summary>
+            <param name="values">The item values to update.</param>
+            <param name="ignoreEtag">When TItem implements IItemWithEtag the etag will be verified on all updates. Setting this flag to true indicates that the etag should be ignored.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A collection of updated item instances.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IWriteOnlyRepository`1.UpdateAsync(System.String,System.Action{Microsoft.Azure.CosmosRepository.Builders.IPatchOperationBuilder{`0}},System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Updates the given cosmos item using the provided and supported patch operations.
+            </summary>
+            <param name="id">The string identifier.</param>
+            <param name="partitionKeyValue">The partition key value if different than the <see cref="P:Microsoft.Azure.CosmosRepository.IItem.Id"/>.</param>
+            <param name="builder">The <see cref="T:Microsoft.Azure.CosmosRepository.Builders.IPatchOperationBuilder`1"/> that will define the update operations to perform.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <param name="etag">Indicate to set IfMatchEtag in the ItemRequestOptions in the underlying Cosmos call. This requires TItem to implement the IItemWithEtag interface.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.ValueTask"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IWriteOnlyRepository`1.DeleteAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the cosmos object that corresponds to the given <paramref name="value"/>.
+            </summary>
+            <param name="value">The object to delete.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.ValueTask"/> representing the asynchronous delete operation.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IWriteOnlyRepository`1.DeleteAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the cosmos object that corresponds to the given <paramref name="id"/>.
+            </summary>
+            <param name="id">The string identifier.</param>
+            <param name="partitionKeyValue">The partition key value if different than the <see cref="P:Microsoft.Azure.CosmosRepository.IItem.Id"/>.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.ValueTask"/> representing the asynchronous delete operation.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Repositories.IWriteOnlyRepository`1.DeleteAsync(System.String,Microsoft.Azure.Cosmos.PartitionKey,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the cosmos object that corresponds to the given <paramref name="id"/>.
+            </summary>
+            <param name="id">The string identifier.</param>
+            <param name="partitionKey">The <see cref="T:Microsoft.Azure.Cosmos.PartitionKey"/> value if different than the <see cref="P:Microsoft.Azure.CosmosRepository.IItem.Id"/>.</param>
+            <param name="cancellationToken">The cancellation token to use when making asynchronous operations.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.ValueTask"/> representing the asynchronous delete operation.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Services.DefaultCosmosContainerSyncService">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Services.DefaultCosmosContainerSyncService.#ctor(Microsoft.Azure.CosmosRepository.Services.ICosmosContainerService)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Services.ICosmosContainerService">
+            <summary>
+            Responsible for providing functions to work with containers
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Services.ICosmosContainerService.GetContainerAsync``1(System.Boolean)">
+            <summary>
+            Gets a container for an <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>
+            </summary>
+            <param name="forceContainerSync"></param>
+            <returns>A Cosmos DB <see cref="T:Microsoft.Azure.Cosmos.Container"/></returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Services.ICosmosContainerService.GetContainerAsync(System.Collections.Generic.IReadOnlyList{System.Type})">
+            <summary>
+            Gets a container for the given <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s types.
+            </summary>
+            <param name="itemTypes">The types of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>'s</param>
+            <exception cref="T:System.InvalidOperationException">This is thrown when any of the item types do not implement <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/></exception>
+            <returns>A Cosmos DB <see cref="T:Microsoft.Azure.Cosmos.Container"/></returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Services.ICosmosContainerSyncService">
+            <summary>
+            Allows containers properties to be sunk.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Services.ICosmosContainerSyncService.SyncContainerPropertiesAsync``1">
+            <summary>
+            Syncs a specific container for an <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>
+            </summary>
+            <typeparam name="TItem">The <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> to sync.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Specification.BaseSpecification`2">
+            <inheritdoc cref="T:Microsoft.Azure.CosmosRepository.Specification.ISpecification`2"/>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.BaseSpecification`2.Query">
+            <summary>
+            The specification query builder. Always use this object when interacting with the specifications. All other properties are readonly or  set;
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.BaseSpecification`2.#ctor">
+            <summary>
+            Initialize specification and add filters later
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.BaseSpecification`2.WhereExpressions">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.BaseSpecification`2.OrderExpressions">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.BaseSpecification`2.ContinuationToken">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.BaseSpecification`2.PageNumber">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.BaseSpecification`2.PageSize">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.BaseSpecification`2.UseContinuationToken">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.BaseSpecification`2.PostProcessingAction(System.Collections.Generic.IReadOnlyList{`0},System.Int32,System.Double,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Specification.Builder.IOrderedSpecificationBuilder`2">
+            <inheritdoc cref="T:Microsoft.Azure.CosmosRepository.Specification.Builder.ISpecificationBuilder`2"/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.Builder.IOrderedSpecificationBuilder`2.ThenBy(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Adds a second a second expression used to order the query after the initial query.
+            </summary>
+            <param name="orderExpression">The expression used to order the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/></param>
+            <remarks>A composite index is required in Cosmos DB to use this feature.</remarks>
+            <returns>An instance of a <see cref="T:Microsoft.Azure.CosmosRepository.Specification.Builder.IOrderedSpecificationBuilder`2"/></returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.Builder.IOrderedSpecificationBuilder`2.ThenByDescending(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Adds a second a second expression used to order the query after the initial query.
+            </summary>
+            <param name="orderExpression">The expression used to order the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/></param>
+            <remarks>A composite index is required in Cosmos DB to use this feature.</remarks>
+            <returns>An instance of a <see cref="T:Microsoft.Azure.CosmosRepository.Specification.Builder.IOrderedSpecificationBuilder`2"/></returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Specification.Builder.ISpecificationBuilder`2">
+            <summary>
+            Defines a builder that can build a specification
+            </summary>
+            <typeparam name="TItem">The type of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/></typeparam>
+            <typeparam name="TResult">The type of <see cref="T:Microsoft.Azure.CosmosRepository.IQueryResult`1"/> to return.</typeparam>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.Builder.ISpecificationBuilder`2.Specification">
+            <summary>
+            The specification for the <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.Builder.ISpecificationBuilder`2.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Provide a filter condition on the current query.
+            </summary>
+            <param name="expression">The expression used for filtering.</param>
+            <returns>An instance of a <see cref="T:Microsoft.Azure.CosmosRepository.Specification.Builder.ISpecificationBuilder`2"/></returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.Builder.ISpecificationBuilder`2.OrderBy(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Provide a filter condition to order the current query.
+            </summary>
+            <param name="orderExpression">The expression used to order the query.</param>
+            <returns>An instance of a <see cref="T:Microsoft.Azure.CosmosRepository.Specification.Builder.IOrderedSpecificationBuilder`2"/></returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.Builder.ISpecificationBuilder`2.OrderByDescending(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Provide a filter condition to order the current query descending.
+            </summary>
+            <param name="orderExpression">The expression used to order the query.</param>
+            <returns>An instance of a <see cref="T:Microsoft.Azure.CosmosRepository.Specification.Builder.IOrderedSpecificationBuilder`2"/></returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.Builder.ISpecificationBuilder`2.PageSize(System.Int32)">
+            <summary>
+            Sets the size of the page.
+            </summary>
+            <param name="pageSize">The number of items to return in the page.</param>
+            <returns>An instance of a <see cref="T:Microsoft.Azure.CosmosRepository.Specification.Builder.ISpecificationBuilder`2"/></returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.Builder.ISpecificationBuilder`2.PageNumber(System.Int32)">
+            <summary>
+            Sets the page number.
+            </summary>
+            <param name="pageNumber">The page number to set.</param>
+            <returns>An instance of a <see cref="T:Microsoft.Azure.CosmosRepository.Specification.Builder.ISpecificationBuilder`2"/></returns>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.Builder.ISpecificationBuilder`2.ContinuationToken(System.String)">
+            <summary>
+            Sets the continuation token used for paging.
+            </summary>
+            <param name="continuationToken">The token used by Cosmos DB to provide efficient, cost effective paging.</param>
+            <returns>An instance of a <see cref="T:Microsoft.Azure.CosmosRepository.Specification.Builder.ISpecificationBuilder`2"/></returns>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Specification.Builder.OrderedSpecificationBuilder`2">
+            <inheritdoc cref="T:Microsoft.Azure.CosmosRepository.Specification.Builder.IOrderedSpecificationBuilder`2"/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.Builder.OrderedSpecificationBuilder`2.ThenBy(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.Builder.OrderedSpecificationBuilder`2.ThenByDescending(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.Builder.SpecificationBuilder`2.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.Builder.SpecificationBuilder`2.OrderBy(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.Builder.SpecificationBuilder`2.OrderByDescending(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.Builder.SpecificationBuilder`2.PageSize(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.Builder.SpecificationBuilder`2.ContinuationToken(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Specification.ContinuationTokenSpecification`1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.ContinuationTokenSpecification`1.#ctor">
+            <summary>
+            Default constructor to set all parameters yourself
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.ContinuationTokenSpecification`1.#ctor(System.String,System.Int32)">
+            <summary>
+            Constructor for specifying the token and page size
+            </summary>
+            <param name="continuationToken"></param>
+            <param name="pageSize"></param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.ContinuationTokenSpecification`1.UpdateContinuationToken(System.String)">
+            <summary>
+            When scrolling through multiple pages reuse the same specification and use this method to update the continuation token
+            </summary>
+            <param name="continuationToken"></param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.ContinuationTokenSpecification`1.PostProcessingAction(System.Collections.Generic.IReadOnlyList{`0},System.Int32,System.Double,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Specification.DefaultSpecification`1">
+            <summary>
+            A specification used for getting all results in a <see cref="T:Microsoft.Azure.CosmosRepository.QueryResult`1"/>
+            </summary>
+            <typeparam name="TItem">The type of <see cref="T:Microsoft.Azure.CosmosRepository.IItem"/> being queried.</typeparam>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.DefaultSpecification`1.PostProcessingAction(System.Collections.Generic.IReadOnlyList{`0},System.Int32,System.Double,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Specification.ISpecification`2">
+            <summary>
+            defines a specification
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.ISpecification`2.WhereExpressions">
+            <summary>
+            A collection of filter expressions used for filtering queries.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.ISpecification`2.OrderExpressions">
+            <summary>
+            A collection of expressions used for sorting.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.ISpecification`2.PostProcessingAction(System.Collections.Generic.IReadOnlyList{`0},System.Int32,System.Double,System.String)">
+            <summary>
+            Processing for updating the query result before returning it from the repository. Given the methods input it should generate the specified TResult />
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.ISpecification`2.ContinuationToken">
+            <summary>
+            Continuation token used for paging in cosmos. Must set <see cref="P:Microsoft.Azure.CosmosRepository.Specification.ISpecification`2.UseContinuationToken"/> for continuation token to be applicable
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.ISpecification`2.PageNumber">
+            <summary>
+            Select which page shoud be selected in the paginated result
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.ISpecification`2.PageSize">
+            <summary>
+            Paginate results, selects how many results should be returned
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.ISpecification`2.UseContinuationToken">
+            <summary>
+            Use continuation token instead of page number
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Specification.OrderExpressionInfo`1">
+             <summary>
+            
+             </summary>
+             <typeparam name="TItem"></typeparam>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.OrderExpressionInfo`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},Microsoft.Azure.CosmosRepository.Specification.OrderTypeEnum)">
+            <summary>
+            Creates instance of <see cref="T:Microsoft.Azure.CosmosRepository.Specification.OrderExpressionInfo`1" />.
+            </summary>
+            <param name="keySelector">A function to extract a key from an element.</param>
+            <param name="orderType">Whether to (subsequently) sort ascending or descending.</param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="keySelector"/> is null.</exception>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.OrderExpressionInfo`1.KeySelector">
+            <summary>
+            A function to extract a key from an element.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.OrderExpressionInfo`1.OrderType">
+            <summary>
+            Whether to (subsequently) sort ascending or descending.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.OrderExpressionInfo`1.KeySelectorFunc">
+            <summary>
+            Compiled <see cref="P:Microsoft.Azure.CosmosRepository.Specification.OrderExpressionInfo`1.KeySelector" />.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Specification.OrderTypeEnum">
+            <summary>
+            Whether to (subsequently) sort ascending or descending.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.CosmosRepository.Specification.OrderTypeEnum.OrderBy">
+            <summary>
+            Order by ascending
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.CosmosRepository.Specification.OrderTypeEnum.OrderByDescending">
+            <summary>
+            Order by descending
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.CosmosRepository.Specification.OrderTypeEnum.ThenBy">
+            <summary>
+            ThenBy must be chained after another other by expression
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.CosmosRepository.Specification.OrderTypeEnum.ThenByDescending">
+            <summary>
+            ThenByDescending must be chained after another other by expression
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Specification.OffsetByPageNumberSpecification`1">
+            <summary>
+            A specification used for the Offset and Limit pattern
+            </summary>
+            <typeparam name="TItem"></typeparam>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.OffsetByPageNumberSpecification`1.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Helper ctor to set page number and page size
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.OffsetByPageNumberSpecification`1.NextPage">
+            <summary>
+            Update the specification to get the next page of the result
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.OffsetByPageNumberSpecification`1.PreviousPage">
+            <summary>
+            Update the specification to get the previous page of the result
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.OffsetByPageNumberSpecification`1.PostProcessingAction(System.Collections.Generic.IReadOnlyList{`0},System.Int32,System.Double,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.Specification.WhereExpressionInfo`1">
+            <summary>
+            Container  public class for a where predicate
+            </summary>
+            <typeparam name="TItem"></typeparam>
+            <remarks>
+            Constructor for creating a where expression
+            </remarks>
+            <param name="filter"></param>
+        </member>
+        <member name="M:Microsoft.Azure.CosmosRepository.Specification.WhereExpressionInfo`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Container  public class for a where predicate
+            </summary>
+            <typeparam name="TItem"></typeparam>
+            <remarks>
+            Constructor for creating a where expression
+            </remarks>
+            <param name="filter"></param>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.Specification.WhereExpressionInfo`1.Filter">
+            <summary>
+            A predicate that is used for filtering. Given an item of <typeparamref name="TItem"/> a function evalut
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.TimeStampedItem">
+             <summary>
+             A base helper  public class that implements IItemWithTimeStamps
+             </summary>
+             <example>
+             Here is an example sub public class item, which adds several properties:
+             <code language="c#">
+             <![CDATA[
+              public class SubItem : ItemWithTimeToLive
+             {
+                 public DateTimeOffset Date { get; set; }
+                 public string Name { get; set; }
+                 public IEnumerable<Child> Children { get; set; }
+                 public IEnumerable<string> Tags { get; set; }
+             }
+            
+              public class Child
+             {
+                 public string Name { get; set; }
+                 public DateTime BirthDate { get; set; }
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.TimeStampedItem.CreatedTimeUtc">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.TimeStampedItem.LastUpdatedTimeUtc">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.TimeStampedItem.LastUpdatedTimeRaw">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Azure.CosmosRepository.TimeToLiveItem">
+             <summary>
+             A base helper  public class that implements IItemWithTimeToLive
+             </summary>
+             <example>
+             Here is an example sub public class item, which adds several properties:
+             <code language="c#">
+             <![CDATA[
+              public class SubItem : ItemWithTimeToLive
+             {
+                 public DateTimeOffset Date { get; set; }
+                 public string Name { get; set; }
+                 public IEnumerable<Child> Children { get; set; }
+                 public IEnumerable<string> Tags { get; set; }
+             }
+            
+              public class Child
+             {
+                 public string Name { get; set; }
+                 public DateTime BirthDate { get; set; }
+             }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="P:Microsoft.Azure.CosmosRepository.TimeToLiveItem.TimeToLive">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
